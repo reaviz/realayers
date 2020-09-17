@@ -4,7 +4,7 @@ import {
   Placement,
   ReferenceObject,
   ConnectedOverlay,
-  TriggerTypes
+  TriggerTypes,
 } from 'rdk';
 import { motion } from 'framer-motion';
 import css from './Tooltip.module.scss';
@@ -12,6 +12,21 @@ import css from './Tooltip.module.scss';
 const tooltips: ((setter: boolean) => void)[] = [];
 
 export interface TooltipProps {
+  /**
+   * Close on any click.
+   */
+  closeOnClick?: boolean;
+
+  /**
+   * Close when the body is clicked.
+   */
+  closeOnBodyClick?: boolean;
+
+  /**
+   * Close when escape key is triggered.
+   */
+  closeOnEscape?: boolean;
+
   /**
    * Content for the tooltip.
    */
@@ -79,11 +94,14 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   trigger = 'hover',
   visible = false,
   followCursor = false,
+  closeOnClick = false,
+  closeOnEscape = true,
+  closeOnBodyClick = true,
   ...rest
 }) => {
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any>();
-  const mounted = useRef<boolean>();
+  const mounted = useRef<boolean>(false);
   const ref = useRef<(setter: boolean) => void>(setInternalVisible);
 
   useEffect(() => {
@@ -124,6 +142,8 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       trigger={trigger}
       followCursor={followCursor}
       open={internalVisible}
+      closeOnBodyClick={closeOnBodyClick}
+      closeOnEscape={closeOnEscape}
       content={() => {
         const contentChildren =
           typeof content === 'function' ? content() : content;
@@ -138,6 +158,11 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
             initial={{ opacity: 0, scale: 0.3 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.3 }}
+            onClick={() => {
+              if (closeOnClick) {
+                deactivateAll();
+              }
+            }}
           >
             {contentChildren}
           </motion.div>
@@ -145,10 +170,10 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       }}
       onActivate={() => {
         if (!internalVisible) {
-          deactivateAll();
           clearTimeout(timeout.current);
           timeout.current = setTimeout(() => {
             if (!disabled) {
+              deactivateAll();
               setInternalVisible(true);
               tooltips.push(ref.current);
             }
