@@ -1,8 +1,9 @@
 # ☁ realayers
-Layer Components for Dialogs, Drawers, Tooltips and Popovers
+Layer Components for React: Dialogs, Drawers, Tooltips and Popovers
 
 ## Components
 - Tooltips
+- Popover
 
 ## Usage
 Install the package via NPM:
