@@ -7,6 +7,8 @@ import css from './Popover.module.scss';
 
 type PopoverProps = {
   disablePadding?: boolean;
+  popoverStyle?: any;
+  popoverClassName?: string;
 } & Partial<TooltipProps>;
 
 export const Popover: FC<PopoverProps> = ({
@@ -18,6 +20,8 @@ export const Popover: FC<PopoverProps> = ({
   content,
   className,
   disablePadding,
+  popoverStyle,
+  popoverClassName,
   ...rest
 }) => {
   const id = useId();
@@ -28,7 +32,7 @@ export const Popover: FC<PopoverProps> = ({
       trigger={trigger}
       leaveDelay={leaveDelay}
       className={classNames(css.popover, {
-        [css.disablePadding]: disablePadding
+        [css.disablePadding]: disablePadding,
       })}
       content={() => {
         const isContentFunction = typeof content === 'function';
@@ -42,10 +46,15 @@ export const Popover: FC<PopoverProps> = ({
             focusTrapOptions={{
               escapeDeactivates: true,
               clickOutsideDeactivates: true,
-              fallbackFocus: `#${id}`
+              fallbackFocus: `#${id}`,
             }}
           >
-            <div id={id} tab-index="-1">
+            <div
+              id={id}
+              tab-index="-1"
+              stlye={popoverStyle}
+              className={popoverClassName}
+            >
               {children}
             </div>
           </FocusTrap>
