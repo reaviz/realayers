@@ -31,7 +31,7 @@ yarn add realayers
 ```
 
 ### Tooltip
-```
+```tsx
 import React, { FC } from 'react';
 import { Tooltip } from 'realayers';
 
@@ -41,7 +41,7 @@ const MyComponent: FC = () => (
 ```
 
 ### Popover
-```
+```tsx
 import React, { FC } from 'react';
 import { Popover } from 'realayers';
 
