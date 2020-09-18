@@ -62,9 +62,12 @@ const MyComponent: FC = () => (
 ## 🔭 CSS Variables
 Add the following CSS variables to your application's body.
 
-```
-var(--color-popover)
-var(--color-on-popover)
-var(--color-tooltip)
-var(--color-on-tooltip)
+```css
+body {
+  --color-popover: rgb(0, 0, 0, .8);
+  --color-on-popover: white;
+  
+  --color-tooltip: rgb(0, 0, 0, .8);
+  --color-on-tooltip: white;
+}
 ```

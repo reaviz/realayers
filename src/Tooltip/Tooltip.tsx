@@ -11,7 +11,7 @@ import css from './Tooltip.module.scss';
 
 const tooltips: ((setter: boolean) => void)[] = [];
 
-export interface TooltipProps {
+export type TooltipProps = {
   /**
    * Close on any click.
    */
@@ -81,7 +81,7 @@ export interface TooltipProps {
    * Whether the tooltip should move with the cursor or not.
    */
   followCursor?: boolean;
-}
+};
 
 export const Tooltip: FC<Partial<TooltipProps>> = ({
   className,

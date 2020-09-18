@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { useId } from 'rdk';
 import css from './Popover.module.scss';
 
-type PopoverProps = {
+export type PopoverProps = {
   disablePadding?: boolean;
   popoverStyle?: any;
   popoverClassName?: string;
