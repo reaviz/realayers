@@ -7,7 +7,8 @@
     "test": "jest --env=jsdom",
     "prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
     "start": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token 15klwb1zctw"
   },
   "source": "src/index.ts",
   "main": "dist/index.cjs.js",
@@ -70,6 +71,7 @@
     "@types/topojson-client": "^3.0.0",
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
+    "chromatic": "^5.2.0",
     "css-loader": "^4.3.0",
     "husky": "^4.2.5",
     "jest": "^26.1.0",

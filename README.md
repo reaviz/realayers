@@ -1,11 +1,29 @@
-# ☁ realayers
-Layer Components for React: Dialogs, Drawers, Tooltips and Popovers
+<p align="center">
+  <h1>☁ realayers</h1>
+  <br />
+  Layer Components for React: Dialogs, Drawers, Tooltips and Popovers
+  <br /><br />
+  <a href="https://npm.im/realayers">
+    <img src="https://img.shields.io/npm/v/realayers.svg" />
+  </a>
+  <a href="https://npm.im/realayers">
+    <img src="https://badgen.net/npm/dw/realayers" />
+  </a>
+  <a href="https://github.com/realayers/realayers/blob/master/LICENSE">
+    <img src="https://badgen.now.sh/badge/license/apache2" />
+  </a>
+  <a href="https://bundlephobia.com/result?p=realayers">
+    <img src="https://badgen.net/bundlephobia/minzip/realayers">
+  </a>
+</p>
 
-## Components
-- Tooltips
-- Popover
+---
 
-## Usage
+## 🚀 Quick Links
+
+- Checkout the [demos](https://chromatic.com/library?appId=5f64a424915bb90022b5d92a&branch=master)
+
+## 📦 Usage
 Install the package via NPM:
 
 ```
@@ -41,7 +59,7 @@ const MyComponent: FC = () => (
 );
 ```
 
-## CSS Variables
+## 🔭 CSS Variables
 Add the following CSS variables to your application's body.
 
 ```
