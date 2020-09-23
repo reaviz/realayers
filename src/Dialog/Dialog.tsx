@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import { GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
-import isFunction from 'lodash/isFunction';
 import css from './Dialog.module.scss';
 
 export type DialogProps = Omit<GlobalOverlayProps, 'children'> & {
@@ -13,6 +12,8 @@ export type DialogProps = Omit<GlobalOverlayProps, 'children'> & {
   showCloseButton?: boolean;
   children?: any;
 };
+
+const isFunction = (fn) => fn && {}.toString.call(fn) === '[object Function]';
 
 export const Dialog: FC<Partial<DialogProps>> = ({
   children,
