@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC } from 'react';
 import classNames from 'classnames';
 import { GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
