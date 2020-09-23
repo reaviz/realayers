@@ -1,0 +1,57 @@
+.dialog {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  will-change: transform, opacity;
+
+  .inner {
+    background: var(--color-dialog);
+    color: var(--color-on-dialog);
+    padding: 24px;
+    box-sizing: border-box;
+    outline: 0;
+    pointer-events: auto;
+    max-width: 80vw;
+    max-height: 80vh;
+    overflow: auto;
+  }
+
+  .header {
+    margin-bottom: 15px;
+    display: flex;
+    padding-bottom: 15px;
+
+    .headerText {
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      display: inline-flex;
+    }
+
+    .closeButton {
+      margin: 0 0 0 15px;
+      opacity: 0.8;
+      height: auto;
+      width: auto;
+      min-width: auto;
+      min-height: auto;
+      display: inline-flex;
+      padding: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      align-items: center;
+      color: var(--color-on-dialog);
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

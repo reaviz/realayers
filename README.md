@@ -59,6 +59,25 @@ const MyComponent: FC = () => (
 );
 ```
 
+### Dialog
+```tsx
+import React, { FC } from 'react';
+import { useDialog } from 'realayers';
+
+export const Simple = () => {
+  const { setOpen, Dialog } = useDialog();
+
+  return (
+    <div>
+      <button onClick={() => setOpen(true)}>Open</button>
+      <Dialog header="Whats up">
+        Hello
+      </Dialog>
+    </div>
+  );
+};
+```
+
 ## 🔭 CSS Variables
 Add the following CSS variables to your application's body.
 
@@ -69,5 +88,9 @@ body {
   
   --color-tooltip: rgb(0, 0, 0, .8);
   --color-on-tooltip: white;
+
+  --color-dialog: #2c2c35;
+  --color-on-dialog: #fff;
+  --color-layer-transparent: rgba(5, 6, 12, 0.9);
 }
 ```
