@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Dialog, DialogProps } from './Dialog';
 
 type DialogOptions =
@@ -12,10 +12,18 @@ export const useDialog = (prop?: DialogOptions) => {
   const { open, onClose } = prop || {};
   const [internalOpen, setInternalOpen] = useState<boolean>(open);
 
+  useEffect(() => {
+    setInternalOpen(open);
+  }, [open]);
+
   const onCloseInternal = useCallback(() => {
     setInternalOpen(false);
     onClose?.();
   }, [onClose]);
+
+  const onToggleOpen = useCallback(() => {
+    setInternalOpen(!open);
+  }, []);
 
   const Component = useCallback(
     (props: Partial<DialogProps>) => (
@@ -27,6 +35,7 @@ export const useDialog = (prop?: DialogOptions) => {
   return {
     isOpen: internalOpen,
     setOpen: setInternalOpen,
+    toggleOpen: onToggleOpen,
     Dialog: Component,
   };
 };

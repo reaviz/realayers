@@ -13,7 +13,7 @@
   .inner {
     background: var(--color-dialog);
     color: var(--color-on-dialog);
-    padding: 24px;
+    padding: 20px;
     box-sizing: border-box;
     outline: 0;
     pointer-events: auto;
@@ -23,9 +23,9 @@
   }
 
   .header {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     display: flex;
-    padding-bottom: 15px;
+    padding-bottom: 5px;
 
     .headerText {
       margin: 0;

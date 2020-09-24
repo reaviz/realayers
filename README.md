@@ -65,11 +65,11 @@ import React, { FC } from 'react';
 import { useDialog } from 'realayers';
 
 export const Simple = () => {
-  const { setOpen, Dialog } = useDialog();
+  const { toggleOpen, Dialog } = useDialog();
 
   return (
     <div>
-      <button onClick={() => setOpen(true)}>Open</button>
+      <button onClick={toggleOpen}>Open</button>
       <Dialog header="Whats up">
         Hello
       </Dialog>

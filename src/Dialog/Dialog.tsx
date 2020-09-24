@@ -13,8 +13,6 @@ export type DialogProps = Omit<GlobalOverlayProps, 'children'> & {
   children?: any;
 };
 
-const isFunction = (fn) => fn && {}.toString.call(fn) === '[object Function]';
-
 export const Dialog: FC<Partial<DialogProps>> = ({
   children,
   open,
@@ -69,8 +67,8 @@ export const Dialog: FC<Partial<DialogProps>> = ({
                     )}
                   </div>
                 )}
-                <div className={css.content} id={`${id}-content`}>
-                  {isFunction(children) ? children() : children}
+                <div id={`${id}-content`}>
+                  {typeof children === 'function' ? children() : children}
                 </div>
               </div>
             </motion.div>
