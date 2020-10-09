@@ -78,6 +78,25 @@ export const Simple = () => {
 };
 ```
 
+### Drawer
+```tsx
+import React, { FC } from 'react';
+import { useDrawer } from 'realayers';
+
+export const Simple = () => {
+  const { toggleOpen, Drawer } = useDrawer();
+
+  return (
+    <div>
+      <button onClick={toggleOpen}>Open</button>
+      <Drawer>
+        Hello
+      </Drawer>
+    </div>
+  );
+};
+```
+
 ## 🔭 CSS Variables
 Add the following CSS variables to your application's body.
 
@@ -91,6 +110,10 @@ body {
 
   --color-dialog: #2c2c35;
   --color-on-dialog: #fff;
+
+  --color-drawer: #2c2c35;
+  --color-on-drawer: #fff;
+
   --color-layer-transparent: rgba(5, 6, 12, 0.9);
 }
 ```
