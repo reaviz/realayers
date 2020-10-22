@@ -4,7 +4,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "lib": ["es2017", "dom"],
-    "typeRoots": ["./node_modules/@types"],
+    "typeRoots": ["./types", "./node_modules/@types"],
     "jsx": "react",
     "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
@@ -29,6 +29,6 @@
     "emitDecoratorMetadata": true
   },
   "types": ["node"],
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "types/*"],
   "exclude": ["node_modules", "dist"]
 }
