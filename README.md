@@ -3,6 +3,9 @@
   <br />
   Layer Components for React: Dialogs, Drawers, Tooltips and Popovers
   <br /><br />
+  <a href="https://github.com/reaviz/realayers/workflows/build/">
+    <img src="https://github.com/reaviz/realayers/workflows/build/badge.svg?branch=master" />
+  </a>
   <a href="https://npm.im/realayers">
     <img src="https://img.shields.io/npm/v/realayers.svg" />
   </a>
