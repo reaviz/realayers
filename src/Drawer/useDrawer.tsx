@@ -21,9 +21,9 @@ export const useDrawer = (prop?: DrawerOptions) => {
     onClose?.();
   }, [onClose]);
 
-  const onToggleOpen = useCallback(() => {
-    setInternalOpen(!open);
-  }, []);
+  const onToggleOpen = () => {
+    setInternalOpen(!internalOpen);
+  };
 
   const Component = useCallback(
     (props: Partial<DrawerProps>) => (
