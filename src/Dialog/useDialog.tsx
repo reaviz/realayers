@@ -21,9 +21,9 @@ export const useDialog = (prop?: DialogOptions) => {
     onClose?.();
   }, [onClose]);
 
-  const onToggleOpen = useCallback(() => {
+  const onToggleOpen = () => {
     setInternalOpen(!open);
-  }, []);
+  };
 
   const Component = useCallback(
     (props: Partial<DialogProps>) => (
