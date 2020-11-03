@@ -1,3 +1,6 @@
+# 2.2.5 - 11/3/2020 
+- fix: improve falsey checking on dialog header
+
 # 2.2.4 - 11/3/2020 
 - fix: remove set font size on drawer
 
