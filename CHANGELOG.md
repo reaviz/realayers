@@ -1,3 +1,6 @@
+# 2.2.3 - 11/3/2020 
+- fix: improve layout elements on drawer and tweak styles
+
 # 2.2.2 - 11/3/2020 
 - fix: improve layout elements on dialog
 
