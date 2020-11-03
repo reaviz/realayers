@@ -54,7 +54,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
             >
               <div className={css.inner} style={{ width: size }}>
                 {header && (
-                  <div className={css.header}>
+                  <header className={css.header}>
                     <h2 className={css.headerText}>{header}</h2>
                     {showCloseButton && (
                       <button
@@ -65,11 +65,11 @@ export const Dialog: FC<Partial<DialogProps>> = ({
                         ✕
                       </button>
                     )}
-                  </div>
+                  </header>
                 )}
-                <div id={`${id}-content`}>
+                <section id={`${id}-content`} className={css.content}>
                   {typeof children === 'function' ? children() : children}
-                </div>
+                </section>
               </div>
             </motion.div>
           </div>
