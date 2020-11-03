@@ -24,23 +24,26 @@
   }
 
   .closeButton {
-    position: absolute;
-    top: 15px;
-    right: 15px;
     opacity: 0.8;
     height: auto;
     width: auto;
     min-width: auto;
     min-height: auto;
-    display: inline-flex;
     padding: 0;
     background: none;
     border: none;
     cursor: pointer;
     color: var(--color-on-drawer);
+    font-size: 16px;
 
     &:focus {
       outline: none;
+    }
+
+    &.headerlessCloseButton {
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
   }
 

@@ -8,9 +8,10 @@ import css from './Dialog.module.scss';
 export type DialogProps = Omit<GlobalOverlayProps, 'children'> & {
   className?: any;
   header?: any;
-  size: string | number;
+  size?: string | number;
   showCloseButton?: boolean;
   children?: any;
+  disablePadding?: boolean;
 };
 
 export const Dialog: FC<Partial<DialogProps>> = ({
@@ -20,6 +21,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   header,
   onClose,
   size = '50%',
+  disablePadding = false,
   hasBackdrop = true,
   showCloseButton = true,
   closeOnBackdropClick = true,
@@ -50,12 +52,12 @@ export const Dialog: FC<Partial<DialogProps>> = ({
               exit={{ opacity: 0, y: '20%' }}
               transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
               style={{ zIndex: overlayIndex }}
-              className={classNames(css.dialog, className)}
+              className={classNames(css.dialog, className, { [css.disableHeader]: header === null, [css.disablePadding]: disablePadding })}
             >
               <div className={css.inner} style={{ width: size }}>
                 {header && (
                   <header className={css.header}>
-                    <h2 className={css.headerText}>{header}</h2>
+                    <h1 className={css.headerText}>{header}</h1>
                     {showCloseButton && (
                       <button
                         type="button"

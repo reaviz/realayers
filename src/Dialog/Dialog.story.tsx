@@ -13,6 +13,28 @@ export const Simple = () => {
   );
 };
 
+export const NoHeader = () => {
+  const { toggleOpen, Dialog } = useDialog();
+
+  return (
+    <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
+      <button onClick={toggleOpen}>Open</button>
+      <Dialog header={null}>Hello</Dialog>
+    </div>
+  );
+};
+
+export const NoPadding = () => {
+  const { toggleOpen, Dialog } = useDialog();
+
+  return (
+    <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
+      <button onClick={toggleOpen}>Open</button>
+      <Dialog header={null} disablePadding={true}>Hello</Dialog>
+    </div>
+  );
+};
+
 export default {
   title: 'Dialog',
   component: Dialog,

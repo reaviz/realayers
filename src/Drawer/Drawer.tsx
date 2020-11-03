@@ -76,12 +76,21 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
               {header && (
                 <header className={css.header}>
                   <h1>{header}</h1>
+                  {showCloseButton && (
+                    <button
+                      type="button"
+                      className={css.closeButton}
+                      onClick={onClose}
+                    >
+                      ✕
+                    </button>
+                  )}
                 </header>
               )}
-              {showCloseButton && (
+              {!header && showCloseButton && (
                 <button
                   type="button"
-                  className={css.closeButton}
+                  className={classNames(css.closeButton, css.headerlessCloseButton)}
                   onClick={onClose}
                 >
                   ✕

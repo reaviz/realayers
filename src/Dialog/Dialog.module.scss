@@ -10,6 +10,19 @@
   position: fixed;
   will-change: transform, opacity;
 
+  &.disableHeader {
+    .content {
+      padding: 20px;
+    }
+  }
+
+  &.disablePadding {
+    .content,
+    .header {
+      padding: 0;
+    }
+  }
+
   .inner {
     background: var(--color-dialog);
     color: var(--color-on-dialog);
@@ -46,6 +59,7 @@
       cursor: pointer;
       align-items: center;
       color: var(--color-on-dialog);
+      font-size: 16px;
 
       &:focus {
         outline: none;
