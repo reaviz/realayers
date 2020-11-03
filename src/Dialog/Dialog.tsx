@@ -52,7 +52,10 @@ export const Dialog: FC<Partial<DialogProps>> = ({
               exit={{ opacity: 0, y: '20%' }}
               transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
               style={{ zIndex: overlayIndex }}
-              className={classNames(css.dialog, className, { [css.disableHeader]: header === null, [css.disablePadding]: disablePadding })}
+              className={classNames(css.dialog, className, {
+                [css.disableHeader]: !header,
+                [css.disablePadding]: disablePadding,
+              })}
             >
               <div className={css.inner} style={{ width: size }}>
                 {header && (
