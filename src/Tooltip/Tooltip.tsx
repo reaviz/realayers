@@ -141,6 +141,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       placement={placement}
       trigger={trigger}
       followCursor={followCursor}
+      style={{ pointerEvents: 'none' }}
       open={internalVisible}
       closeOnBodyClick={closeOnBodyClick}
       closeOnEscape={closeOnEscape}
