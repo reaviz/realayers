@@ -81,6 +81,11 @@ export type TooltipProps = {
    * Whether the tooltip should move with the cursor or not.
    */
   followCursor?: boolean;
+
+  /**
+   * Add pointer events or not. Usually not for tooltips.
+   */
+  pointerEvents?: string;
 };
 
 export const Tooltip: FC<Partial<TooltipProps>> = ({
@@ -97,6 +102,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   closeOnClick = false,
   closeOnEscape = true,
   closeOnBodyClick = true,
+  pointerEvents = 'none',
   ...rest
 }) => {
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
@@ -141,7 +147,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       placement={placement}
       trigger={trigger}
       followCursor={followCursor}
-      style={{ pointerEvents: 'none' }}
+      style={{ pointerEvents }}
       open={internalVisible}
       closeOnBodyClick={closeOnBodyClick}
       closeOnEscape={closeOnEscape}

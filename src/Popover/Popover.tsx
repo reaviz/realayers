@@ -30,6 +30,7 @@ export const Popover: FC<PopoverProps> = ({
     <Tooltip
       {...rest}
       trigger={trigger}
+      pointerEvents="auto"
       leaveDelay={leaveDelay}
       className={classNames(css.popover, {
         [css.disablePadding]: disablePadding,
