@@ -2,9 +2,12 @@
   background: var(--color-tooltip);
   border-radius: 5px;
   color: var(--color-on-tooltip);
-  pointer-events: none;
   padding: 7px;
   white-space: nowrap;
   text-align: center;
   will-change: transform, opacity;
+}
+
+.disablePointer {
+  pointer-events: none;
 }

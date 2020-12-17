@@ -10974,10 +10974,10 @@ raw-loader@^4.0.1:
     loader-utils "^2.0.0"
     schema-utils "^2.6.5"
 
-rdk@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/rdk/-/rdk-5.0.0.tgz#00e8f5d4c32d630a02b949726f54c76349b6392f"
-  integrity sha512-n4GBy7sVLCej0k8p1XkYge7/QHjnplJW56PjD3zWbXkkq3tOEj02JR7KKjio5mmvU93TZQyDUhewaBuLfcB/jQ==
+rdk@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/rdk/-/rdk-5.0.1.tgz#12d156602c27dc3e2f30f3e1da211d5a69ecf3f6"
+  integrity sha512-sRN4n0gKM8vU5XHTVZhL2sUKiHrsK3mOQeeUxSxuTrEzg/tYW6cfJ+C/hK3dMsc1OW4HRb3tOq7TeEIbb45XaQ==
   dependencies:
     classnames "^2.2.6"
     framer-motion "^2.7.7"

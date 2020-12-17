@@ -2,7 +2,6 @@
   background: var(--color-popover);
   border-radius: 2px;
   color: var(--color-on-popover);
-  pointer-events: initial !important;
   padding: 14px;
   will-change: transform, opacity;
 
