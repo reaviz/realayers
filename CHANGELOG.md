@@ -10,6 +10,9 @@
 # 2.2.4 - 11/3/2020 
 - fix: remove set font size on drawer
 
+# 2.3.2 - 12/17/2020
+- [chore] update rdk
+
 # 2.2.3 - 11/3/2020 
 - fix: improve layout elements on drawer and tweak styles
 
