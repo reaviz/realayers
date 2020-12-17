@@ -4,7 +4,7 @@ import FocusTrap from 'focus-trap-react';
 import { GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import { motion } from 'framer-motion';
 import { variants } from './variants';
-import css from './Drawer.module.scss';
+import css from './Drawer.module.css';
 
 export type DrawerProps = Omit<GlobalOverlayProps, 'children'> & {
   position?: 'start' | 'end' | 'top' | 'bottom';

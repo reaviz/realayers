@@ -3,7 +3,7 @@ import { TooltipProps, Tooltip } from '../Tooltip';
 import FocusTrap from 'focus-trap-react';
 import classNames from 'classnames';
 import { useId } from 'rdk';
-import css from './Popover.module.scss';
+import css from './Popover.module.css';
 
 export type PopoverProps = {
   disablePadding?: boolean;

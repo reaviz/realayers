@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
-import css from './Dialog.module.scss';
+import css from './Dialog.module.css';
 
 export type DialogProps = Omit<GlobalOverlayProps, 'children'> & {
   className?: any;

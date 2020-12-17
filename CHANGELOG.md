@@ -1,3 +1,6 @@
+# 2.3.0 - 12/17/2020
+- chore: update rdk
+
 # 2.2.5 - 11/3/2020 
 - fix: improve falsey checking on dialog header
 

@@ -7,7 +7,7 @@ import {
   TriggerTypes,
 } from 'rdk';
 import { motion } from 'framer-motion';
-import css from './Tooltip.module.scss';
+import css from './Tooltip.module.css';
 
 const tooltips: ((setter: boolean) => void)[] = [];
 
@@ -175,7 +175,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           </motion.div>
         );
       }}
-      onActivate={() => {
+      onOpen={() => {
         if (!internalVisible) {
           clearTimeout(timeout.current);
           timeout.current = setTimeout(() => {
@@ -187,7 +187,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           }, enterDelay);
         }
       }}
-      onDeactivate={() => {
+      onClose={() => {
         clearTimeout(timeout.current);
         timeout.current = setTimeout(() => deactivate(), leaveDelay);
       }}
