@@ -10,6 +10,10 @@
 # 2.2.4 - 11/3/2020 
 - fix: remove set font size on drawer
 
+# 2.3.3 - 12/18/2020
+- [chore] update deps
+- [chore] cleanup deps
+
 # 2.3.2 - 12/17/2020
 - [chore] update rdk
 
