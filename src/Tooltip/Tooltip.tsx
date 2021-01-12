@@ -147,7 +147,9 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       placement={placement}
       trigger={trigger}
       followCursor={followCursor}
-      portalClassName={classNames({ [css.disablePointer]: pointerEvents === 'none' })}
+      portalClassName={classNames({
+        [css.disablePointer]: pointerEvents === 'none',
+      })}
       open={internalVisible}
       closeOnBodyClick={closeOnBodyClick}
       closeOnEscape={closeOnEscape}
@@ -162,8 +164,20 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
         return (
           <motion.div
             className={classNames(css.tooltip, className)}
-            initial={{ opacity: 0, scale: 0.3 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{
+              opacity: 0,
+              scale: 0.3,
+              transition: {
+                when: 'beforeChildren',
+              },
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+              transition: {
+                when: 'beforeChildren',
+              },
+            }}
             exit={{ opacity: 0, scale: 0.3 }}
             onClick={() => {
               if (closeOnClick) {
