@@ -10,6 +10,9 @@
 # 2.2.4 - 11/3/2020 
 - fix: remove set font size on drawer
 
+# 2.3.6 - 1/12/2021
+- [fix] tooltip/popover animation happens before children
+
 # 2.3.5 - 12/29/2020
 - [chore] update rdk
 
