@@ -7,6 +7,16 @@ export const Simple = () => (
   </div>
 );
 
+export const Disabled = () => (
+  <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
+    <Tooltip content="Hi there" disabled={true}>
+      <button disabled>
+        Hover me
+      </button>
+    </Tooltip>
+  </div>
+);
+
 export default {
   title: 'Tooltip',
   component: Tooltip
