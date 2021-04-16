@@ -10,6 +10,9 @@
 # 2.2.4 - 11/3/2020 
 - fix: remove set font size on drawer
 
+# 2.4.0 - 4/16/2021
+- [chore] upgrade reaviz/deps
+
 # 2.3.6 - 1/12/2021
 - [fix] tooltip/popover animation happens before children
 
