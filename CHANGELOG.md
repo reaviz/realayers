@@ -1,3 +1,6 @@
+# 2.4.2 - 7/9/21
+- chore: update rdk
+
 # 2.3.1/2.3.2 - 12/17/2020
 - chore: update rdk
 
