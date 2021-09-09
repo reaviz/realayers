@@ -30,7 +30,8 @@
 
 ## 🚀 Quick Links
 
-- Checkout the [demos](https://chromatic.com/library?appId=5f64a424915bb90022b5d92a&branch=master)
+- Checkout the [demos](https://5f64a424915bb90022b5d92a-cqjsvzamiy.chromatic.com/)
+- View the library on [Chromatic](https://chromatic.com/library?appId=5f64a424915bb90022b5d92a&branch=master)
 - Learn about updates from the [changelog](CHANGELOG.md)
 
 ## 📦 Usage
