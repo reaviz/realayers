@@ -8,8 +8,7 @@ import {
 } from 'rdk';
 import { motion } from 'framer-motion';
 import css from './Tooltip.module.css';
-
-const tooltips: ((setter: boolean) => void)[] = [];
+import { useTooltipState } from './useTooltipState';
 
 export type TooltipProps = {
   /**
@@ -105,6 +104,8 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   pointerEvents = 'none',
   ...rest
 }) => {
+  const { addTooltip, deactivateTooltip, deactivateAllTooltips } = useTooltipState();
+
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any>();
   const mounted = useRef<boolean>(false);
@@ -120,26 +121,9 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
 
     return () => {
       clearTimeout(timeout.current);
-      deactivate();
+      deactivateTooltip(ref.current);
     };
   }, [visible]);
-
-  const deactivateAll = useCallback(
-    () =>
-      tooltips.forEach((r, i) => {
-        r(false);
-        tooltips.splice(i, 1);
-      }),
-    []
-  );
-
-  const deactivate = useCallback(() => {
-    const idx = tooltips.indexOf(ref.current);
-    if (idx > -1) {
-      setInternalVisible(false);
-      tooltips.splice(idx, 1);
-    }
-  }, []);
 
   return (
     <ConnectedOverlay
@@ -181,7 +165,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
             exit={{ opacity: 0, scale: 0.3 }}
             onClick={() => {
               if (closeOnClick) {
-                deactivateAll();
+                deactivateAllTooltips();
               }
             }}
           >
@@ -194,16 +178,18 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           clearTimeout(timeout.current);
           timeout.current = setTimeout(() => {
             if (!disabled) {
-              deactivateAll();
+              deactivateAllTooltips();
               setInternalVisible(true);
-              tooltips.push(ref.current);
+              addTooltip(ref.current);
             }
           }, enterDelay);
         }
       }}
       onClose={() => {
         clearTimeout(timeout.current);
-        timeout.current = setTimeout(() => deactivate(), leaveDelay);
+        timeout.current = setTimeout(() => {
+          deactivateTooltip(ref.current);
+        }, leaveDelay);
       }}
     >
       {children}

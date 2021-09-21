@@ -2,6 +2,11 @@ import React from 'react';
 import { Dialog } from './Dialog';
 import { useDialog } from './useDialog';
 
+export default {
+  title: 'Dialog',
+  component: Dialog,
+};
+
 export const Simple = () => {
   const { toggleOpen, Dialog } = useDialog();
 
@@ -33,9 +38,4 @@ export const NoPadding = () => {
       <Dialog header={null} disablePadding={true}>Hello</Dialog>
     </div>
   );
-};
-
-export default {
-  title: 'Dialog',
-  component: Dialog,
 };

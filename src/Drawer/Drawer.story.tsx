@@ -2,6 +2,11 @@ import React, { Fragment } from 'react';
 import { useDrawer } from './useDrawer';
 import { Drawer } from './Drawer';
 
+export default {
+  title: 'Drawer',
+  component: Drawer
+};
+
 export const Simple = () => {
   const { toggleOpen, Drawer } = useDrawer();
   return (
@@ -28,9 +33,4 @@ export const Header = () => {
       </button>
     </Fragment>
   );
-};
-
-export default {
-  title: 'Drawer',
-  component: Drawer
 };

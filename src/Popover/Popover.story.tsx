@@ -1,6 +1,11 @@
 import React from 'react';
 import { Popover } from './Popover';
 
+export default {
+  title: 'Popover',
+  component: Popover
+};
+
 export const Simple = () => (
   <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
     <Popover
@@ -11,12 +16,7 @@ export const Simple = () => (
         </div>
       }
     >
-      Hi!
+      Click Me
     </Popover>
   </div>
 );
-
-export default {
-  title: 'Popover',
-  component: Popover
-};

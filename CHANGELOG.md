@@ -1,6 +1,7 @@
-# 2.4.3 - 9/8/21
+# 2.4.4 - 9/21/21
+- [fix] improve race cases with tooltips
 
-# 2.4.2 - 7/9/21
+# 2.4.2/3 - 7/9/21
 - chore: update rdk
 
 # 2.3.1/2.3.2 - 12/17/2020
