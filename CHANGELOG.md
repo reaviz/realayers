@@ -1,4 +1,4 @@
-# 2.4.4 - 9/21/21
+# 2.4.4/5 - 9/21/21
 - [fix] improve race cases with tooltips
 
 # 2.4.2/3 - 7/9/21
