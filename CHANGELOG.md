@@ -1,3 +1,6 @@
+# 2.4.6 - 9/22/21
+- [chore] upgrade rdk for ghost dom issues
+
 # 2.4.4/5 - 9/21/21
 - [fix] improve race cases with tooltips
 
