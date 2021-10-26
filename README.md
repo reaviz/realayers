@@ -128,3 +128,9 @@ body {
   --color-layer-transparent: rgba(5, 6, 12, 0.9);
 }
 ```
+
+## ❤️ Contributors
+
+Thanks to all our contributors!
+
+<a href="https://github.com/reaviz/realayers/graphs/contributors"><img src="https://opencollective.com/reaviz/contributors.svg?width=890" /></a>
