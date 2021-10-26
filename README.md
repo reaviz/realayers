@@ -108,7 +108,7 @@ export const Simple = () => {
 };
 ```
 
-## 🔭 CSS Variables
+## 🎨 CSS Variables
 Add the following CSS variables to your application's body.
 
 ```css
