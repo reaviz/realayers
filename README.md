@@ -129,6 +129,15 @@ body {
 }
 ```
 
+## 🔭 Development
+
+If you want to run realayers locally, its super easy!
+
+- Clone the repo
+- `yarn install`
+- `yarn start`
+- Browser opens to Storybook page
+
 ## ❤️ Contributors
 
 Thanks to all our contributors!
