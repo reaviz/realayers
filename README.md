@@ -1,4 +1,4 @@
-<p align="center">
+<div align="center">
   <h1>☁ realayers</h1>
   <br />
   Layer Components for React: Dialogs, Drawers, Tooltips and Popovers
@@ -24,7 +24,7 @@
   <a href="https://opencollective.com/reaviz">
     <img alt="Open Collective backers and sponsors" src="https://img.shields.io/opencollective/all/reaviz?label=backers">
   </a>
-</p>
+</div>
 
 ---
 
