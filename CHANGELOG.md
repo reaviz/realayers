@@ -1,3 +1,6 @@
+# 2.5.0 - 1/18/22
+- [feature] menu component
+
 # 2.4.6 - 9/22/21
 - [chore] upgrade rdk for ghost dom issues
 

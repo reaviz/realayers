@@ -108,6 +108,25 @@ export const Simple = () => {
 };
 ```
 
+### Menu
+```tsx
+import React, { FC } from 'react';
+import { useMenu } from 'realayers';
+
+export const Simple = () => {
+  const { toggleOpen, ref, Menu } = useMenu();
+
+  return (
+    <div>
+      <button ref={ref} onClick={toggleOpen}>Open</button>
+      <Menu>
+        Hello
+      </Menu>
+    </div>
+  );
+};
+```
+
 ## 🎨 CSS Variables
 Add the following CSS variables to your application's body.
 

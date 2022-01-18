@@ -1,6 +1,6 @@
 {
   "name": "realayers",
-  "version": "2.4.6",
+  "version": "2.5.0",
   "description": "Layer Components for React - Dialogs, Drawers, Tooltips, Popovers",
   "scripts": {
     "build": "rollup -c",
