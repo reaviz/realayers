@@ -5,7 +5,7 @@ import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
 import { motion } from 'framer-motion';
 import css from './Menu.module.css';
 
-export type MenuProps = {
+export interface MenuProps {
   appendToBody?: boolean;
   autofocus?: boolean;
   children: any;
@@ -18,7 +18,7 @@ export type MenuProps = {
   open: boolean;
   maxHeight: string;
   onClose: (event: OverlayEvent) => void;
-};
+}
 
 export const Menu: FC<Partial<MenuProps>> = ({
   reference,

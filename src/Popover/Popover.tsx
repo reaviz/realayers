@@ -1,15 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import { TooltipProps, Tooltip } from '../Tooltip';
 import FocusTrap from 'focus-trap-react';
 import classNames from 'classnames';
 import { useId } from 'rdk';
 import css from './Popover.module.css';
 
-export type PopoverProps = {
+export interface PopoverProps extends Partial<TooltipProps> {
   disablePadding?: boolean;
   popoverStyle?: any;
   popoverClassName?: string;
-} & Partial<TooltipProps>;
+}
 
 export const Popover: FC<PopoverProps> = ({
   closeOnEscape = true,

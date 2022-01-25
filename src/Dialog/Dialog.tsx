@@ -5,19 +5,21 @@ import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
 import css from './Dialog.module.css';
 
-export type DialogProps = Omit<GlobalOverlayProps, 'children'> & {
-  className?: any;
+export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
+  className?: string;
+  innerClassName?: string;
   header?: any;
   size?: string | number;
   showCloseButton?: boolean;
   children?: any;
   disablePadding?: boolean;
-};
+}
 
 export const Dialog: FC<Partial<DialogProps>> = ({
   children,
   open,
   className,
+  innerClassName,
   header,
   onClose,
   size = '50%',
@@ -57,7 +59,10 @@ export const Dialog: FC<Partial<DialogProps>> = ({
                 [css.disablePadding]: disablePadding,
               })}
             >
-              <div className={css.inner} style={{ width: size }}>
+              <div
+                className={classNames(css.inner, innerClassName)}
+                style={{ width: size }}
+              >
                 {header && (
                   <header className={css.header}>
                     <h1 className={css.headerText}>{header}</h1>

@@ -7,10 +7,10 @@ import {
   TriggerTypes,
 } from 'rdk';
 import { motion } from 'framer-motion';
-import css from './Tooltip.module.css';
 import { useTooltipState } from './useTooltipState';
+import css from './Tooltip.module.css';
 
-export type TooltipProps = {
+export interface TooltipProps {
   /**
    * Close on any click.
    */
@@ -64,7 +64,7 @@ export type TooltipProps = {
   /**
    * Additiona CSS classnames.
    */
-  className?: any;
+  className?: string;
 
   /**
    * How the tooltip will be triggered.
@@ -85,7 +85,7 @@ export type TooltipProps = {
    * Add pointer events or not. Usually not for tooltips.
    */
   pointerEvents?: string;
-};
+}
 
 export const Tooltip: FC<Partial<TooltipProps>> = ({
   className,
@@ -104,7 +104,11 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   pointerEvents = 'none',
   ...rest
 }) => {
-  const { addTooltip, deactivateTooltip, deactivateAllTooltips } = useTooltipState();
+  const {
+    addTooltip,
+    deactivateTooltip,
+    deactivateAllTooltips,
+  } = useTooltipState();
 
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any>();

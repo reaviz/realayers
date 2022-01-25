@@ -6,16 +6,16 @@ import { motion } from 'framer-motion';
 import { variants } from './variants';
 import css from './Drawer.module.css';
 
-export type DrawerProps = Omit<GlobalOverlayProps, 'children'> & {
+export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   position?: 'start' | 'end' | 'top' | 'bottom';
   size?: string | number;
-  className?: any;
-  backdropClassName?: any;
+  className?: string;
+  backdropClassName?: string;
   disablePadding?: boolean;
   header?: any;
   showCloseButton?: boolean;
   children?: any;
-};
+}
 
 export const Drawer: FC<Partial<DrawerProps>> = ({
   className,
@@ -30,14 +30,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   closeOnBackdropClick = true,
   disablePadding = false,
   showCloseButton = true,
-  onClose = () => undefined
+  onClose = () => undefined,
 }) => {
   const id = useId();
   const variant = variants[position];
 
   const style = {
     width: position === 'start' || position === 'end' ? size : 'auto',
-    height: position === 'top' || position === 'bottom' ? size : 'auto'
+    height: position === 'top' || position === 'bottom' ? size : 'auto',
   };
 
   return (
@@ -54,7 +54,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
           focusTrapOptions={{
             clickOutsideDeactivates: true,
             escapeDeactivates: true,
-            fallbackFocus: `#${id}`
+            fallbackFocus: `#${id}`,
           }}
         >
           <div id={id} tab-index="-1">
@@ -66,11 +66,11 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
               transition={{
                 duration: 0.5,
                 ease: [0.04, 0.62, 0.23, 0.98],
-                when: 'beforeChildren'
+                when: 'beforeChildren',
               }}
               style={{ ...style, zIndex: overlayIndex }}
               className={classNames(css.drawer, className, css[position], {
-                [css.disablePadding]: disablePadding
+                [css.disablePadding]: disablePadding,
               })}
             >
               {header && (
@@ -90,7 +90,10 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
               {!header && showCloseButton && (
                 <button
                   type="button"
-                  className={classNames(css.closeButton, css.headerlessCloseButton)}
+                  className={classNames(
+                    css.closeButton,
+                    css.headerlessCloseButton
+                  )}
                   onClick={onClose}
                 >
                   ✕

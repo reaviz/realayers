@@ -1,3 +1,6 @@
+# 2.5.1 - 1/25/22
+- [feature] add `innerClassName` to `Dialog`
+
 # 2.5.0 - 1/18/22
 - [feature] menu component
 
