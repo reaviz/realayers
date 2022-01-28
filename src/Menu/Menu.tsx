@@ -25,14 +25,14 @@ export const Menu: FC<Partial<MenuProps>> = ({
   children,
   style,
   className,
-  placement = 'bottom-start',
-  closeOnEscape = true,
-  open = false,
-  appendToBody = true,
-  closeOnBodyClick = true,
-  maxHeight = 'max-height: calc(100vh - 48px)',
-  autofocus = true,
-  onClose = () => undefined,
+  placement,
+  closeOnEscape,
+  open,
+  appendToBody,
+  closeOnBodyClick,
+  maxHeight,
+  autofocus,
+  onClose,
 }) => {
   const id = useId();
 
@@ -76,4 +76,14 @@ export const Menu: FC<Partial<MenuProps>> = ({
       onClose={onClose}
     />
   );
+};
+
+Menu.defaultProps = {
+  placement: 'bottom-start',
+  closeOnEscape: true,
+  open: false,
+  appendToBody: true,
+  closeOnBodyClick: true,
+  maxHeight: 'max-height: calc(100vh - 48px)',
+  autofocus: true,
 };

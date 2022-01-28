@@ -1,7 +1,7 @@
 <div align="center">
   <h1>☁ realayers</h1>
   <br />
-  Layer Components for React: Dialogs, Drawers, Tooltips and Popovers
+  Layer Components for React: Dialogs, Drawers, Tooltips, Menus, Context Menus and Popovers
   <br /><br />
   <a href="https://github.com/reaviz/realayers/workflows/build/">
     <img src="https://github.com/reaviz/realayers/workflows/build/badge.svg?branch=master" />
@@ -125,6 +125,24 @@ export const Simple = () => {
     </div>
   );
 };
+```
+
+### ContextMenu
+```tsx
+import React, { FC } from 'react';
+import { ContextMenu } from 'realayers';
+
+export const Simple = () => (
+  <ContextMenu
+    content={
+      <div style={{ padding: 20 }}>
+        something cool here
+      </div>
+    }
+  >
+    <button>👋 right click me</button>
+  </ContextMenu>
+);
 ```
 
 ## 🎨 CSS Variables

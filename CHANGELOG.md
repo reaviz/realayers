@@ -1,3 +1,7 @@
+# 2.6.0 - 1/28/22
+- [feature] context menu
+- [chore] update to default props inits
+
 # 2.5.1 - 1/25/22
 - [feature] add `innerClassName` to `Dialog`
 

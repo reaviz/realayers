@@ -200,3 +200,17 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
     </ConnectedOverlay>
   );
 };
+
+Tooltip.defaultProps = {
+  disabled: false,
+  enterDelay: 0,
+  leaveDelay: 200,
+  placement: 'top',
+  trigger: 'hover',
+  visible: false,
+  followCursor: false,
+  closeOnClick: false,
+  closeOnEscape: true,
+  closeOnBodyClick: true,
+  pointerEvents: 'none',
+};

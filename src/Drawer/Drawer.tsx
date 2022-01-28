@@ -23,14 +23,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   open,
   backdropClassName,
   header,
-  position = 'end',
-  size = '80%',
-  hasBackdrop = true,
-  closeOnEscape = true,
-  closeOnBackdropClick = true,
-  disablePadding = false,
-  showCloseButton = true,
-  onClose = () => undefined,
+  position,
+  size,
+  hasBackdrop,
+  closeOnEscape,
+  closeOnBackdropClick,
+  disablePadding,
+  showCloseButton,
+  onClose,
 }) => {
   const id = useId();
   const variant = variants[position];
@@ -108,4 +108,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
       )}
     </GlobalOverlay>
   );
+};
+
+Drawer.defaultProps = {
+  position: 'end',
+  size: '80%',
+  hasBackdrop: true,
+  closeOnEscape: true,
+  closeOnBackdropClick: true,
+  disablePadding: false,
+  showCloseButton: true,
 };

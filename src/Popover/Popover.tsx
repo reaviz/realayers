@@ -66,3 +66,10 @@ export const Popover: FC<PopoverProps> = ({
     </Tooltip>
   );
 };
+
+Popover.defaultProps = {
+  closeOnEscape: true,
+  closeOnBodyClick: true,
+  trigger: 'click',
+  leaveDelay: 200,
+};
