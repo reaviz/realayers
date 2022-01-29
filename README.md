@@ -1,7 +1,7 @@
 <div align="center">
   <h1>☁ realayers</h1>
   <br />
-  Layer Components for React: Dialogs, Drawers, Tooltips, Menus, Context Menus and Popovers
+  Layer Components for React: Dialogs, Drawers, Tooltips, Menus, Context Menus, Notifications and Popovers
   <br /><br />
   <a href="https://github.com/reaviz/realayers/workflows/build/">
     <img src="https://github.com/reaviz/realayers/workflows/build/badge.svg?branch=master" />
@@ -145,6 +145,28 @@ export const Simple = () => (
 );
 ```
 
+### Notifications
+```tsx
+import React, { FC } from 'react';
+import { Notifications, useNotification } from 'realayers';
+
+export const App = () => (
+  <Notifications>
+    <YourComponent />
+  </Notifications>
+);
+
+export const YourComponent = () => {
+  const { notify } = useNotification();
+
+  return (
+    <button onClick={() => notify('Something good happened!')}>
+      Notify
+    </button>
+  );
+};
+```
+
 ## 🎨 CSS Variables
 Add the following CSS variables to your application's body.
 
@@ -161,6 +183,13 @@ body {
 
   --color-drawer: #2c2c35;
   --color-on-drawer: #fff;
+
+  --color-notification: rgb(9, 9, 10, 0.9);
+  --color-on-notification: #fff;
+  --color-notification-border: transparent;
+  --color-notification-error: red;
+  --color-notification-warning: yellow;
+  --color-notification-success: green;
 
   --color-layer-transparent: rgba(5, 6, 12, 0.9);
 }

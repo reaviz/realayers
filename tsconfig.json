@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2015",
-    "module": "esnext",
+    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "react-jsx",
     "moduleResolution": "node",
-    "lib": ["es2017", "dom"],
-    "typeRoots": ["./types", "./node_modules/@types"],
-    "jsx": "react",
-    "baseUrl": "./src",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationDir": "./dist",
@@ -19,6 +17,7 @@
     "noImplicitThis": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "allowJs": true,
     "pretty": true,
     "outDir": "./dist",
     "skipLibCheck": true,
@@ -29,6 +28,6 @@
     "emitDecoratorMetadata": true
   },
   "types": ["node"],
-  "include": ["src/**/*", "types/*"],
+  "include": ["src/**/*", "demo/**/*"],
   "exclude": ["node_modules", "dist"]
 }

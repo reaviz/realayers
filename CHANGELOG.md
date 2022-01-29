@@ -1,3 +1,8 @@
+# 2.7.0 - 1/29/22
+- [feature] notification component
+- [fix] export context menu in index
+- [chore] add linting
+
 # 2.6.0 - 1/28/22
 - [feature] context menu
 - [chore] update to default props inits
