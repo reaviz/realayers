@@ -13,6 +13,7 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   showCloseButton?: boolean;
   children?: any;
   disablePadding?: boolean;
+  footer?: any;
 }
 
 export const Dialog: FC<Partial<DialogProps>> = ({
@@ -21,6 +22,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   className,
   innerClassName,
   header,
+  footer,
   onClose,
   size,
   disablePadding,
@@ -80,6 +82,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
                 <section id={`${id}-content`} className={css.content}>
                   {typeof children === 'function' ? children() : children}
                 </section>
+                {footer && <footer className={css.footer}>{footer}</footer>}
               </div>
             </motion.div>
           </div>

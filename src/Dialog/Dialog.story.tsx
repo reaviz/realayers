@@ -35,7 +35,29 @@ export const NoPadding = () => {
   return (
     <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
       <button onClick={toggleOpen}>Open</button>
-      <Dialog header={null} disablePadding={true}>Hello</Dialog>
+      <Dialog header={null} disablePadding={true}>
+        Hello
+      </Dialog>
+    </div>
+  );
+};
+
+export const Footer = () => {
+  const { toggleOpen, Dialog } = useDialog();
+
+  return (
+    <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
+      <button onClick={toggleOpen}>Open</button>
+      <Dialog
+        header="Whats up"
+        footer={
+          <div>
+            <button>Save</button>
+          </div>
+        }
+      >
+        <div style={{ height: '300px', backgroundColor: 'white' }}>Hello</div>
+      </Dialog>
     </div>
   );
 };
