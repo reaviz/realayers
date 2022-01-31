@@ -1,3 +1,6 @@
+# 2.7.1 - 1/31/22
+- [feature] add footer to dialogs
+
 # 2.7.0 - 1/29/22
 - [feature] notification component
 - [fix] export context menu in index
