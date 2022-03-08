@@ -4,7 +4,7 @@ import { Drawer } from './Drawer';
 
 export default {
   title: 'Drawer',
-  component: Drawer
+  component: Drawer,
 };
 
 export const Simple = () => {
@@ -12,6 +12,22 @@ export const Simple = () => {
   return (
     <Fragment>
       <Drawer>
+        <p>Hello There!</p>
+      </Drawer>
+      <button type="button" onClick={toggleOpen}>
+        Open
+      </button>
+    </Fragment>
+  );
+};
+
+const CustomHeaderElement = () => <div>hello!</div>;
+
+export const CustomHeader = () => {
+  const { toggleOpen, Drawer } = useDrawer();
+  return (
+    <Fragment>
+      <Drawer headerElement={<CustomHeaderElement />}>
         <p>Hello There!</p>
       </Drawer>
       <button type="button" onClick={toggleOpen}>

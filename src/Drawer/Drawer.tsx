@@ -1,10 +1,11 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
-import { GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
+import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import { motion } from 'framer-motion';
 import { variants } from './variants';
 import css from './Drawer.module.css';
+import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 
 export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   position?: 'start' | 'end' | 'top' | 'bottom';
@@ -15,10 +16,12 @@ export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   header?: any;
   showCloseButton?: boolean;
   children?: any;
+  headerElement: ReactElement<DrawerHeaderProps, typeof DrawerHeader> | null;
 }
 
 export const Drawer: FC<Partial<DrawerProps>> = ({
   className,
+  headerElement,
   children,
   open,
   backdropClassName,
@@ -73,21 +76,16 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 [css.disablePadding]: disablePadding,
               })}
             >
-              {header && (
-                <header className={css.header}>
-                  <h1>{header}</h1>
-                  {showCloseButton && (
-                    <button
-                      type="button"
-                      className={css.closeButton}
-                      onClick={onClose}
-                    >
-                      ✕
-                    </button>
-                  )}
-                </header>
+              {(header || headerElement) && (
+                <CloneElement<DrawerHeaderProps>
+                  element={headerElement}
+                  showCloseButton={showCloseButton}
+                  onClose={onClose}
+                >
+                  {header}
+                </CloneElement>
               )}
-              {!header && showCloseButton && (
+              {!header && !headerElement && showCloseButton && (
                 <button
                   type="button"
                   className={classNames(
@@ -118,4 +116,5 @@ Drawer.defaultProps = {
   closeOnBackdropClick: true,
   disablePadding: false,
   showCloseButton: true,
+  headerElement: <DrawerHeader />,
 };

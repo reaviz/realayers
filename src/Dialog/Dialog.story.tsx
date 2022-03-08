@@ -18,6 +18,19 @@ export const Simple = () => {
   );
 };
 
+const CustomHeaderElement = () => <div>hello!</div>;
+
+export const CustomHeader = () => {
+  const { toggleOpen, Dialog } = useDialog();
+
+  return (
+    <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
+      <button onClick={toggleOpen}>Open</button>
+      <Dialog headerElement={<CustomHeaderElement />}>Body Content</Dialog>
+    </div>
+  );
+};
+
 export const NoHeader = () => {
   const { toggleOpen, Dialog } = useDialog();
 

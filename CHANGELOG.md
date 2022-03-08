@@ -1,3 +1,7 @@
+# 2.8.0 - 3/8/22
+- [feature] expose dialog header element
+- [feature] expose drawer header element
+
 # 2.7.1 - 1/31/22
 - [feature] add footer to dialogs
 

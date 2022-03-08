@@ -1,19 +1,21 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import classNames from 'classnames';
-import { GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
+import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
 import css from './Dialog.module.css';
+import { DialogHeader, DialogHeaderProps } from './DialogHeader';
 
 export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   className?: string;
   innerClassName?: string;
-  header?: any;
   size?: string | number;
   showCloseButton?: boolean;
   children?: any;
   disablePadding?: boolean;
   footer?: any;
+  header?: any;
+  headerElement: ReactElement<DialogHeaderProps, typeof DialogHeader> | null;
 }
 
 export const Dialog: FC<Partial<DialogProps>> = ({
@@ -22,6 +24,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   className,
   innerClassName,
   header,
+  headerElement,
   footer,
   onClose,
   size,
@@ -32,6 +35,8 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   closeOnEscape,
 }) => {
   const id = useId();
+
+  console.log('here', headerElement);
 
   return (
     <GlobalOverlay
@@ -65,19 +70,14 @@ export const Dialog: FC<Partial<DialogProps>> = ({
                 className={classNames(css.inner, innerClassName)}
                 style={{ width: size }}
               >
-                {header && (
-                  <header className={css.header}>
-                    <h1 className={css.headerText}>{header}</h1>
-                    {showCloseButton && (
-                      <button
-                        type="button"
-                        className={css.closeButton}
-                        onClick={onClose}
-                      >
-                        ✕
-                      </button>
-                    )}
-                  </header>
+                {(header || headerElement) && (
+                  <CloneElement<DialogHeaderProps>
+                    element={headerElement}
+                    showCloseButton={showCloseButton}
+                    onClose={onClose}
+                  >
+                    {header}
+                  </CloneElement>
                 )}
                 <section id={`${id}-content`} className={css.content}>
                   {typeof children === 'function' ? children() : children}
@@ -99,4 +99,5 @@ Dialog.defaultProps = {
   showCloseButton: true,
   closeOnBackdropClick: true,
   closeOnEscape: true,
+  headerElement: <DialogHeader />,
 };
