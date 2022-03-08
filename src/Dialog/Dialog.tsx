@@ -36,8 +36,6 @@ export const Dialog: FC<Partial<DialogProps>> = ({
 }) => {
   const id = useId();
 
-  console.log('here', headerElement);
-
   return (
     <GlobalOverlay
       open={open}
