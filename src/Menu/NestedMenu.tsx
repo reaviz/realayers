@@ -104,55 +104,45 @@ export const NestedMenu: FC<NestedMenuProps> = ({
   const enterTimeoutRef = useRef<any | null>(null);
   const leaveTimeoutRef = useRef<any | null>(null);
 
-  const clearTimeouts = useCallback(() => {
+  const onMouseEnterItem = useCallback(() => {
     clearTimeout(enterTimeoutRef.current);
     clearTimeout(leaveTimeoutRef.current);
-  }, []);
-
-  const onMouseEnterItem = useCallback(() => {
-    clearTimeouts();
     enterTimeoutRef.current = setTimeout(() => setActive(true), enterDelay);
-  }, [enterDelay, clearTimeouts]);
+  }, [enterDelay]);
 
   const onClickItem = useCallback(() => {
-    clearTimeouts();
+    clearTimeout(enterTimeoutRef.current);
+    clearTimeout(leaveTimeoutRef.current);
     setActive(!active);
-  }, [active, clearTimeouts]);
+  }, [active]);
 
-  const onMouseLeaveItem = useCallback(
-    event => {
-      clearTimeouts();
+  const onMouseLeaveItem = useCallback(() => {
+    leaveTimeoutRef.current = setTimeout(() => {
+      if (!menuEntered.current) {
+        setActive(false);
+      }
+    }, leaveDelay);
+  }, [leaveDelay]);
 
-      leaveTimeoutRef.current = setTimeout(() => {
-        if (!menuEntered.current) {
-          setActive(false);
-        }
-      }, leaveDelay);
-    },
-    [leaveDelay, clearTimeouts]
-  );
-
-  const onMouseEnterMenu = useCallback(
-    event => {
-      clearTimeouts();
-      menuEntered.current = true;
-    },
-    [clearTimeouts]
-  );
+  const onMouseEnterMenu = useCallback(event => {
+    clearTimeout(enterTimeoutRef.current);
+    clearTimeout(leaveTimeoutRef.current);
+    menuEntered.current = true;
+  }, []);
 
   const onMouseLeaveMenu = useCallback(
     event => {
-      clearTimeouts();
+      clearTimeout(enterTimeoutRef.current);
+      clearTimeout(leaveTimeoutRef.current);
+      menuEntered.current = false;
 
       leaveTimeoutRef.current = setTimeout(() => {
-        menuEntered.current = false;
-
         if (!itemRef.current?.contains(event.target)) {
           setActive(false);
         }
       }, leaveDelay);
     },
-    [clearTimeouts, leaveDelay]
+    [leaveDelay]
   );
 
   const onNestedMenuClose = useCallback(
