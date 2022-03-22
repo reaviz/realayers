@@ -1,3 +1,6 @@
+# 2.9.3 - 3/22/22
+- [fix] fix nested menu not closing correctly
+
 # 2.9.2 - 3/22/22
 - [feature] add active classname to nested menu
 - [fix] fix nested menu exit not getting leave delay
