@@ -33,7 +33,7 @@ export const Popover: FC<PopoverProps> = ({
       pointerEvents="initial"
       leaveDelay={leaveDelay}
       className={classNames(css.popover, {
-        [css.disablePadding]: disablePadding,
+        [css.disablePadding]: disablePadding
       })}
       content={() => {
         const isContentFunction = typeof content === 'function';
@@ -47,7 +47,7 @@ export const Popover: FC<PopoverProps> = ({
             focusTrapOptions={{
               escapeDeactivates: true,
               clickOutsideDeactivates: true,
-              fallbackFocus: `#${id}`,
+              fallbackFocus: `#${id}`
             }}
           >
             <div
@@ -71,5 +71,5 @@ Popover.defaultProps = {
   closeOnEscape: true,
   closeOnBodyClick: true,
   trigger: 'click',
-  leaveDelay: 200,
+  leaveDelay: 200
 };

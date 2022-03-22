@@ -33,14 +33,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   closeOnBackdropClick,
   disablePadding,
   showCloseButton,
-  onClose,
+  onClose
 }) => {
   const id = useId();
   const variant = variants[position];
 
   const style = {
     width: position === 'start' || position === 'end' ? size : 'auto',
-    height: position === 'top' || position === 'bottom' ? size : 'auto',
+    height: position === 'top' || position === 'bottom' ? size : 'auto'
   };
 
   return (
@@ -57,7 +57,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
           focusTrapOptions={{
             clickOutsideDeactivates: true,
             escapeDeactivates: true,
-            fallbackFocus: `#${id}`,
+            fallbackFocus: `#${id}`
           }}
         >
           <div id={id} tab-index="-1">
@@ -69,11 +69,11 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
               transition={{
                 duration: 0.5,
                 ease: [0.04, 0.62, 0.23, 0.98],
-                when: 'beforeChildren',
+                when: 'beforeChildren'
               }}
               style={{ ...style, zIndex: overlayIndex }}
               className={classNames(css.drawer, className, css[position], {
-                [css.disablePadding]: disablePadding,
+                [css.disablePadding]: disablePadding
               })}
             >
               {(header || headerElement) && (
@@ -116,5 +116,5 @@ Drawer.defaultProps = {
   closeOnBackdropClick: true,
   disablePadding: false,
   showCloseButton: true,
-  headerElement: <DrawerHeader />,
+  headerElement: <DrawerHeader />
 };

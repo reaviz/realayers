@@ -19,7 +19,7 @@ export const Notification: FC<NotificationProps> = ({
   timeout,
   className,
   variant,
-  onClose,
+  onClose
 }) => {
   const timeoutRef = useRef<any | null>(null);
 
@@ -45,7 +45,7 @@ export const Notification: FC<NotificationProps> = ({
         [css.default]: variant === 'default',
         [css.error]: variant === 'error',
         [css.success]: variant === 'success',
-        [css.warning]: variant === 'warning',
+        [css.warning]: variant === 'warning'
       })}
       onMouseEnter={clearTimer}
       onMouseLeave={startTimer}

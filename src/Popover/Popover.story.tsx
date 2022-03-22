@@ -10,7 +10,7 @@ export const Simple = () => (
   <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
     <Popover
       content={
-        <div style={{ textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
           <h1>WHATS UP????!</h1>
           <button type="button">Click me</button>
         </div>

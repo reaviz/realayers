@@ -4,7 +4,7 @@ import { Drawer } from './Drawer';
 
 export default {
   title: 'Drawer',
-  component: Drawer,
+  component: Drawer
 };
 
 export const Simple = () => {

@@ -43,6 +43,6 @@ export const useMenu = (prop?: MenuOptions) => {
     setOpen: setInternalOpen,
     toggleOpen: onToggleOpen,
     Menu: Component,
-    ref,
+    ref
   };
 };

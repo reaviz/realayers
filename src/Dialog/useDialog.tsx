@@ -36,6 +36,6 @@ export const useDialog = (prop?: DialogOptions) => {
     isOpen: internalOpen,
     setOpen: setInternalOpen,
     toggleOpen: onToggleOpen,
-    Dialog: Component,
+    Dialog: Component
   };
 };

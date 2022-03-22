@@ -13,7 +13,7 @@ export const DialogHeader: FC<Partial<DialogHeaderProps>> = ({
   children,
   className,
   showCloseButton,
-  onClose,
+  onClose
 }) => (
   <header className={classNames(css.header, className)}>
     <h1 className={css.headerText}>{children}</h1>

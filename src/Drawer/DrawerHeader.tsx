@@ -13,7 +13,7 @@ export const DrawerHeader: FC<Partial<DrawerHeaderProps>> = ({
   children,
   className,
   showCloseButton,
-  onClose,
+  onClose
 }) => (
   <header className={classNames(css.header, className)}>
     <h1>{children}</h1>

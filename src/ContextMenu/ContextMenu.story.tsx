@@ -3,7 +3,7 @@ import { ContextMenu } from './ContextMenu';
 
 export default {
   title: 'Context Menu',
-  component: ContextMenu,
+  component: ContextMenu
 };
 
 export const Simple = () => (

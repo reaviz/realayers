@@ -1,8 +1,8 @@
-export const popover: string
-export const disablePadding: string
+export const popover: string;
+export const disablePadding: string;
 interface Namespace {
-	"popover": string,
-	"disablePadding": string,
+  popover: string;
+  disablePadding: string;
 }
-declare const popoverModule: Namespace
-export default popoverModule
+declare const popoverModule: Namespace;
+export default popoverModule;

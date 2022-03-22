@@ -4,7 +4,7 @@ import { useDialog } from './useDialog';
 
 export default {
   title: 'Dialog',
-  component: Dialog,
+  component: Dialog
 };
 
 export const Simple = () => {

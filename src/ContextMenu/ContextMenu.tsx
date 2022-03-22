@@ -30,7 +30,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
 
   const onOpen = useCallback(() => {
     if (!disabled) {
-      menus.forEach((m) => m(false));
+      menus.forEach(m => m(false));
       setOpen(true);
       setMenus([setOpen]);
     }
@@ -58,7 +58,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
       {...rest}
       triggerClassName={classNames({
         [css.open]: open,
-        [css.enabled]: !disabled,
+        [css.enabled]: !disabled
       })}
       trigger="contextmenu"
       open={open}
@@ -74,7 +74,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
               focusTrapOptions={{
                 escapeDeactivates: true,
                 clickOutsideDeactivates: true,
-                fallbackFocus: `#${id}`,
+                fallbackFocus: `#${id}`
               }}
             >
               <div id={id} tabIndex={-1}>
@@ -97,5 +97,5 @@ ContextMenu.defaultProps = {
   autofocus: true,
   autoClose: true,
   closeOnEscape: true,
-  closeOnBodyClick: true,
+  closeOnBodyClick: true
 };

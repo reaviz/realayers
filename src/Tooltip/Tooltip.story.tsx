@@ -19,9 +19,7 @@ export const Simple = () => (
 export const Disabled = () => (
   <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
     <Tooltip content="Hi there" disabled={true}>
-      <button disabled>
-        Hover me
-      </button>
+      <button disabled>Hover me</button>
     </Tooltip>
   </div>
 );

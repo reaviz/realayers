@@ -4,12 +4,12 @@ import React, {
   ReactNode,
   useState,
   useCallback,
-  useMemo,
+  useMemo
 } from 'react';
 import { Notification } from './Notification';
 import {
   NotificationOptions,
-  NotificationsContext,
+  NotificationsContext
 } from './NotificationsContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import css from './Notifications.module.css';
@@ -30,12 +30,12 @@ export const Notifications: FC<NotificationsProps> = ({
   limit,
   timeout,
   showClose,
-  preventFlooding,
+  preventFlooding
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
   const clearNotification = useCallback(
-    (id: number) => setNotifications(notifications.filter((n) => n.id !== id)),
+    (id: number) => setNotifications(notifications.filter(n => n.id !== id)),
     [notifications]
   );
 
@@ -46,7 +46,7 @@ export const Notifications: FC<NotificationsProps> = ({
       // If we are flooded with the same message over and over,
       // dont add more of the same type. Mainly used for error use cases.
       if (preventFlooding) {
-        const has = notifications.find((n) => n.title === title);
+        const has = notifications.find(n => n.title === title);
 
         if (has) {
           return false;
@@ -61,7 +61,7 @@ export const Notifications: FC<NotificationsProps> = ({
         variant: 'default',
         timeout,
         showClose,
-        ...options,
+        ...options
       };
 
       const sorted = [obj, ...notifications];
@@ -104,7 +104,7 @@ export const Notifications: FC<NotificationsProps> = ({
       notifyWarning,
       notifySuccess,
       clearNotification,
-      clearAllNotifications,
+      clearAllNotifications
     }),
     [
       clearNotification,
@@ -112,7 +112,7 @@ export const Notifications: FC<NotificationsProps> = ({
       notify,
       notifyError,
       notifySuccess,
-      notifyWarning,
+      notifyWarning
     ]
   );
 
@@ -130,7 +130,7 @@ export const Notifications: FC<NotificationsProps> = ({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                {notifications.map((n) => (
+                {notifications.map(n => (
                   <Notification {...n} key={n.id} onClose={clearNotification} />
                 ))}
               </motion.div>
@@ -146,5 +146,5 @@ Notifications.defaultProps = {
   limit: 10,
   timeout: 4000,
   showClose: true,
-  preventFlooding: true,
+  preventFlooding: true
 };

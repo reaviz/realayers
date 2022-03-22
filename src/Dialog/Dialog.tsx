@@ -32,7 +32,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   hasBackdrop,
   showCloseButton,
   closeOnBackdropClick,
-  closeOnEscape,
+  closeOnEscape
 }) => {
   const id = useId();
 
@@ -49,7 +49,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
           focusTrapOptions={{
             clickOutsideDeactivates: true,
             escapeDeactivates: true,
-            fallbackFocus: `#${id}-content`,
+            fallbackFocus: `#${id}-content`
           }}
         >
           <div id={id} tab-index="-1">
@@ -61,7 +61,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
               style={{ zIndex: overlayIndex }}
               className={classNames(css.dialog, className, {
                 [css.disableHeader]: !header,
-                [css.disablePadding]: disablePadding,
+                [css.disablePadding]: disablePadding
               })}
             >
               <div
@@ -97,5 +97,5 @@ Dialog.defaultProps = {
   showCloseButton: true,
   closeOnBackdropClick: true,
   closeOnEscape: true,
-  headerElement: <DialogHeader />,
+  headerElement: <DialogHeader />
 };
