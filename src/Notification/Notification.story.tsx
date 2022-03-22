@@ -4,7 +4,7 @@ import { NotificationsContext } from './NotificationsContext';
 
 export default {
   title: 'Notification',
-  component: Notifications,
+  component: Notifications
 };
 
 export const Title = () => (
@@ -41,7 +41,7 @@ export const TitleAndBody = () => (
           <button
             onClick={() =>
               notify('Welcome', {
-                body: <h3>Hello Friend!</h3>,
+                body: <h3>Hello Friend!</h3>
               })
             }
           >
@@ -63,7 +63,7 @@ export const Variants = () => (
         notifySuccess,
         notifyError,
         notifyWarning,
-        clearAllNotifications: clearAll,
+        clearAllNotifications: clearAll
       }) => (
         <Fragment>
           <button onClick={() => notifySuccess('Something good happened!')}>

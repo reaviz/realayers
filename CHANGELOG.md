@@ -1,3 +1,6 @@
+# 2.9.0 - 3/22/22
+- [feature] nested menu
+
 # 2.8.1 - 3/8/22
 - [chore] remove console log
 

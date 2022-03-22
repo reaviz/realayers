@@ -30,6 +30,7 @@ module.exports = {
     }
   }],
   'rules': {
+    'react/display-name': [false],
     'no-unused-vars': [0],
     'indent': ['error', 2],
     'react/prop-types': [0],

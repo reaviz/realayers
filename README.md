@@ -38,6 +38,10 @@
 Install the package via NPM:
 
 ```
+npm i realayers --s
+```
+-or-
+```
 yarn add realayers
 ```
 

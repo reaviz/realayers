@@ -4,7 +4,7 @@ import {
   Placement,
   ReferenceObject,
   ConnectedOverlay,
-  TriggerTypes,
+  TriggerTypes
 } from 'rdk';
 import { motion } from 'framer-motion';
 import { useTooltipState } from './useTooltipState';
@@ -107,7 +107,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   const {
     addTooltip,
     deactivateTooltip,
-    deactivateAllTooltips,
+    deactivateAllTooltips
   } = useTooltipState();
 
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
@@ -123,11 +123,13 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       setInternalVisible(visible);
     }
 
+    const curRef = ref.current;
+
     return () => {
       clearTimeout(timeout.current);
-      deactivateTooltip(ref.current);
+      deactivateTooltip(curRef);
     };
-  }, [visible]);
+  }, [deactivateTooltip, visible]);
 
   return (
     <ConnectedOverlay
@@ -136,7 +138,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       trigger={trigger}
       followCursor={followCursor}
       portalClassName={classNames({
-        [css.disablePointer]: pointerEvents === 'none',
+        [css.disablePointer]: pointerEvents === 'none'
       })}
       open={internalVisible}
       closeOnBodyClick={closeOnBodyClick}
@@ -156,15 +158,15 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
               opacity: 0,
               scale: 0.3,
               transition: {
-                when: 'beforeChildren',
-              },
+                when: 'beforeChildren'
+              }
             }}
             animate={{
               opacity: 1,
               scale: 1,
               transition: {
-                when: 'beforeChildren',
-              },
+                when: 'beforeChildren'
+              }
             }}
             exit={{ opacity: 0, scale: 0.3 }}
             onClick={() => {
@@ -212,5 +214,5 @@ Tooltip.defaultProps = {
   closeOnClick: false,
   closeOnEscape: true,
   closeOnBodyClick: true,
-  pointerEvents: 'none',
+  pointerEvents: 'none'
 };
