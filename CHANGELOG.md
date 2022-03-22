@@ -1,4 +1,8 @@
-# 2.9.0 - 3/22/22
+# 2.9.2 - 3/22/22
+- [feature] add active classname to nested menu
+- [fix] fix nested menu exit not getting leave delay
+
+# 2.9.1 - 3/22/22
 - [fix] fix nested menu props not defined correctly
 
 # 2.9.0 - 3/22/22
