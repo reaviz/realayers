@@ -1,6 +1,7 @@
 import React, { FC, Fragment, useCallback, useRef, useState } from 'react';
 import { OverlayEvent, Placement } from 'rdk';
 import { Menu } from './Menu';
+import classNames from 'classnames';
 
 export interface NestedMenuProps {
   /**
@@ -32,6 +33,11 @@ export interface NestedMenuProps {
    * CSS class applied to label element.
    */
   menuClassName?: string;
+
+  /**
+   * CSS class applied to label element when active.
+   */
+  activeClassName?: string;
 
   /**
    * CSS Properties for the label element.
@@ -86,6 +92,7 @@ export const NestedMenu: FC<NestedMenuProps> = ({
   leaveDelay,
   className,
   maxHeight,
+  activeClassName,
   closeOnBodyClick,
   closeOnEscape,
   onClose
@@ -136,13 +143,16 @@ export const NestedMenu: FC<NestedMenuProps> = ({
   const onMouseLeaveMenu = useCallback(
     event => {
       clearTimeouts();
-      menuEntered.current = false;
 
-      if (!itemRef.current?.contains(event.target)) {
-        setActive(false);
-      }
+      leaveTimeoutRef.current = setTimeout(() => {
+        menuEntered.current = false;
+
+        if (!itemRef.current?.contains(event.target)) {
+          setActive(false);
+        }
+      }, leaveDelay);
     },
-    [clearTimeouts]
+    [clearTimeouts, leaveDelay]
   );
 
   const onNestedMenuClose = useCallback(
@@ -156,7 +166,7 @@ export const NestedMenu: FC<NestedMenuProps> = ({
   return (
     <Fragment>
       <div
-        className={className}
+        className={classNames(className, { [activeClassName]: active })}
         style={style}
         ref={itemRef}
         onClick={onClickItem}
