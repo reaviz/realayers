@@ -51,12 +51,12 @@ export interface NestedMenuProps {
   /**
    * Close the menu on click or not.
    */
-  closeOnBodyClick: boolean;
+  closeOnBodyClick?: boolean;
 
   /**
    * Close the menu on escape.
    */
-  closeOnEscape: boolean;
+  closeOnEscape?: boolean;
 
   /**
    * Max height of the menu.
