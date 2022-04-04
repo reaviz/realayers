@@ -2,7 +2,7 @@ import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion/dist/framer-motion';
 import css from './Menu.module.css';
 
 export interface MenuProps {
@@ -77,75 +77,74 @@ export interface MenuProps {
   onMouseLeave: (event) => void;
 }
 
-export const Menu: FC<
-  Partial<MenuProps & { ref?: Ref<HTMLDivElement> }>
-> = forwardRef(
-  (
-    {
-      reference,
-      children,
-      style,
-      className,
-      placement,
-      closeOnEscape,
-      open,
-      appendToBody,
-      closeOnBodyClick,
-      maxHeight,
-      autofocus,
-      onClose,
-      onMouseEnter,
-      onMouseLeave
-    },
-    ref: Ref<HTMLDivElement>
-  ) => {
-    const id = useId();
+export const Menu: FC<Partial<MenuProps & { ref?: Ref<HTMLDivElement> }>> =
+  forwardRef(
+    (
+      {
+        reference,
+        children,
+        style,
+        className,
+        placement,
+        closeOnEscape,
+        open,
+        appendToBody,
+        closeOnBodyClick,
+        maxHeight,
+        autofocus,
+        onClose,
+        onMouseEnter,
+        onMouseLeave
+      },
+      ref: Ref<HTMLDivElement>
+    ) => {
+      const id = useId();
 
-    return (
-      <ConnectedOverlay
-        open={open}
-        closeOnBodyClick={closeOnBodyClick}
-        appendToBody={appendToBody}
-        reference={reference}
-        placement={placement}
-        closeOnEscape={closeOnEscape}
-        content={() => (
-          <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className={classNames(css.container, className)}
-            style={style}
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
-          >
-            {autofocus && (
-              <FocusTrap
-                focusTrapOptions={{
-                  escapeDeactivates: true,
-                  clickOutsideDeactivates: true,
-                  fallbackFocus: `#${id}`
-                }}
-              >
-                <div
-                  id={id}
-                  className={css.inner}
-                  tabIndex={-1}
-                  style={{ maxHeight }}
+      return (
+        <ConnectedOverlay
+          open={open}
+          closeOnBodyClick={closeOnBodyClick}
+          appendToBody={appendToBody}
+          reference={reference}
+          placement={placement}
+          closeOnEscape={closeOnEscape}
+          content={() => (
+            <motion.div
+              ref={ref}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              className={classNames(css.container, className)}
+              style={style}
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
+              {autofocus && (
+                <FocusTrap
+                  focusTrapOptions={{
+                    escapeDeactivates: true,
+                    clickOutsideDeactivates: true,
+                    fallbackFocus: `#${id}`
+                  }}
                 >
-                  {children}
-                </div>
-              </FocusTrap>
-            )}
-            {!autofocus && <div className={css.inner}>{children}</div>}
-          </motion.div>
-        )}
-        onClose={onClose}
-      />
-    );
-  }
-);
+                  <div
+                    id={id}
+                    className={css.inner}
+                    tabIndex={-1}
+                    style={{ maxHeight }}
+                  >
+                    {children}
+                  </div>
+                </FocusTrap>
+              )}
+              {!autofocus && <div className={css.inner}>{children}</div>}
+            </motion.div>
+          )}
+          onClose={onClose}
+        />
+      );
+    }
+  );
 
 Menu.defaultProps = {
   placement: 'bottom-start',

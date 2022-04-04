@@ -2,7 +2,7 @@ import React, { FC, ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion/dist/framer-motion';
 import { variants } from './variants';
 import css from './Drawer.module.css';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';

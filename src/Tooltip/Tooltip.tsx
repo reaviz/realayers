@@ -6,7 +6,7 @@ import {
   ConnectedOverlay,
   TriggerTypes
 } from 'rdk';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion/dist/framer-motion';
 import { useTooltipState } from './useTooltipState';
 import css from './Tooltip.module.css';
 
@@ -104,11 +104,8 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   pointerEvents = 'none',
   ...rest
 }) => {
-  const {
-    addTooltip,
-    deactivateTooltip,
-    deactivateAllTooltips
-  } = useTooltipState();
+  const { addTooltip, deactivateTooltip, deactivateAllTooltips } =
+    useTooltipState();
 
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any>();

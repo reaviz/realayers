@@ -1,3 +1,7 @@
+# 3.0.0 - 3/4/22
+- [chore] upgrade react 18
+- [chore] upgrade framer-motion 6
+
 # 2.9.3 - 3/22/22
 - [fix] fix nested menu not closing correctly
 

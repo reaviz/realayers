@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useEffect, useRef } from 'react';
 import classNames from 'classnames';
 import { NotificationOptions } from './NotificationsContext';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion/dist/framer-motion';
 import css from './Notification.module.css';
 
 export interface NotificationProps extends NotificationOptions {
