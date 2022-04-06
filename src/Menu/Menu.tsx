@@ -2,7 +2,7 @@ import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
-import { motion } from 'framer-motion/dist/framer-motion';
+import { motion } from 'framer-motion';
 import css from './Menu.module.css';
 
 export interface MenuProps {

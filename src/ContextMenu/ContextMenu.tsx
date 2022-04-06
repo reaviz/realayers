@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, useState, useCallback, useEffect } from 'react';
-import { motion } from 'framer-motion/dist/framer-motion';
+import { motion } from 'framer-motion';
 import { ConnectedOverlay, ConnectedOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
 import classNames from 'classnames';

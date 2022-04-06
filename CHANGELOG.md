@@ -1,3 +1,7 @@
+# 3.0.1 - 3/6/22
+- [chore] bump rdk
+- [chore] fix framer-motion imports
+
 # 3.0.0 - 3/4/22
 - [chore] upgrade react 18
 - [chore] upgrade framer-motion 6

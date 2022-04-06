@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
-import { motion } from 'framer-motion/dist/framer-motion';
+import { motion } from 'framer-motion';
 import css from './Dialog.module.css';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
 

@@ -11,7 +11,7 @@ import {
   NotificationOptions,
   NotificationsContext
 } from './NotificationsContext';
-import { AnimatePresence, motion } from 'framer-motion/dist/framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import css from './Notifications.module.css';
 
 export interface NotificationsProps {
