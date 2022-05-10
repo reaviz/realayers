@@ -1,4 +1,11 @@
-import React, { FC, useState, useRef, useEffect, useCallback } from 'react';
+import React, {
+  FC,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  ReactNode
+} from 'react';
 import classNames from 'classnames';
 import {
   Placement,
@@ -11,6 +18,11 @@ import { useTooltipState } from './useTooltipState';
 import css from './Tooltip.module.css';
 
 export interface TooltipProps {
+  /**
+   * Content to wrap.
+   */
+  children?: ReactNode;
+
   /**
    * Close on any click.
    */
