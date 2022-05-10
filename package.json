@@ -1,6 +1,6 @@
 {
   "name": "realayers",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Layer Components for React - Dialogs, Drawers, Tooltips, Popovers",
   "scripts": {
     "build": "rollup -c",
@@ -44,7 +44,7 @@
     "classnames": "^2.3.1",
     "create-global-state-hook": "^0.0.2",
     "focus-trap-react": "^8.7.1",
-    "rdk": "^6.0.1"
+    "rdk": "^6.0.2"
   },
   "peerDependencies": {
     "framer-motion": "^6.0.0",
