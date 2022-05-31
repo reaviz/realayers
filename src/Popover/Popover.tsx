@@ -6,16 +6,27 @@ import { useId } from 'rdk';
 import css from './Popover.module.css';
 
 export interface PopoverProps extends Partial<TooltipProps> {
+  /**
+   * Disable default padding on popover.
+   */
   disablePadding?: boolean;
-  popoverStyle?: any;
+
+  /**
+   * Popover css styles.
+   */
+  popoverStyle?: React.StyleHTMLAttributes<any>;
+
+  /**
+   * Popover classname.
+   */
   popoverClassName?: string;
 }
 
 export const Popover: FC<PopoverProps> = ({
-  closeOnEscape = true,
-  closeOnBodyClick = true,
-  trigger = 'click',
-  leaveDelay = 200,
+  closeOnEscape,
+  closeOnBodyClick,
+  trigger,
+  leaveDelay,
   children,
   content,
   className,

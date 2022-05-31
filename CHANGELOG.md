@@ -1,3 +1,7 @@
+# 3.0.4 - 5/31/22
+- [feature] allow passing triggerClassName in popover/tooltip
+- [chore] improve typescript types
+
 # 3.0.1 - 3/6/22
 - [chore] bump rdk
 - [chore] fix framer-motion imports

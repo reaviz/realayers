@@ -74,9 +74,14 @@ export interface TooltipProps {
   visible: boolean;
 
   /**
-   * Additiona CSS classnames.
+   * Additional CSS classnames.
    */
   className?: string;
+
+  /**
+   * CSS Classname for the tooltip container ( ie. the thing that the tooltip is bound to ).
+   */
+  triggerClassName?: string;
 
   /**
    * How the tooltip will be triggered.
@@ -103,24 +108,25 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   className,
   children,
   content,
-  disabled = false,
-  enterDelay = 0,
-  leaveDelay = 200,
-  placement = 'top',
-  trigger = 'hover',
-  visible = false,
-  followCursor = false,
-  closeOnClick = false,
-  closeOnEscape = true,
-  closeOnBodyClick = true,
-  pointerEvents = 'none',
+  triggerClassName,
+  disabled,
+  enterDelay,
+  leaveDelay,
+  placement,
+  trigger,
+  visible,
+  followCursor,
+  closeOnClick,
+  closeOnEscape,
+  closeOnBodyClick,
+  pointerEvents,
   ...rest
 }) => {
   const { addTooltip, deactivateTooltip, deactivateAllTooltips } =
     useTooltipState();
 
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
-  const timeout = useRef<any>();
+  const timeout = useRef<any | null>(null);
   const mounted = useRef<boolean>(false);
   const ref = useRef<(setter: boolean) => void>(setInternalVisible);
 
@@ -133,9 +139,9 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
     }
 
     const curRef = ref.current;
-
+    const timer = timeout.current;
     return () => {
-      clearTimeout(timeout.current);
+      clearTimeout(timer);
       deactivateTooltip(curRef);
     };
   }, [deactivateTooltip, visible]);
@@ -146,6 +152,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       placement={placement}
       trigger={trigger}
       followCursor={followCursor}
+      triggerClassName={triggerClassName}
       portalClassName={classNames({
         [css.disablePointer]: pointerEvents === 'none'
       })}
