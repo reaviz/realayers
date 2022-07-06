@@ -43,6 +43,7 @@ export const Popover: FC<PopoverProps> = ({
       trigger={trigger}
       pointerEvents="initial"
       leaveDelay={leaveDelay}
+      isPopover
       className={classNames(css.popover, {
         [css.disablePadding]: disablePadding
       })}
