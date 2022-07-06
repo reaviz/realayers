@@ -137,8 +137,8 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any | null>(null);
   const mounted = useRef<boolean>(false);
-  const ref = useRef<(setter: boolean) => boolean>(
-    (vis: boolean, isPop?: boolean) => {
+  const ref = useRef<(setter: boolean, isPop?: boolean) => boolean>(
+    (vis, isPop) => {
       // Since Popovers use the Tooltip component and they share state, need to differentiate between
       // Popovers and Tooltips so one does not deactivate the other
       if (isPop === isPopover) {
