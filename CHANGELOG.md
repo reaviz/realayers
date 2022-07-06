@@ -1,3 +1,6 @@
+# 3.0.5 - 5/31/22
+- [fix] fix tooltips and popovers killing each other #7
+
 # 3.0.4 - 5/31/22
 - [feature] allow passing triggerClassName in popover/tooltip
 - [chore] improve typescript types
