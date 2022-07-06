@@ -102,6 +102,11 @@ export interface TooltipProps {
    * Add pointer events or not. Usually not for tooltips.
    */
   pointerEvents?: string;
+
+  /**
+   * Differentiator for popovers to be handled separate from tooltips
+   */
+  isPopover?: boolean;
 }
 
 export const Tooltip: FC<Partial<TooltipProps>> = ({
@@ -120,15 +125,30 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   closeOnEscape,
   closeOnBodyClick,
   pointerEvents,
+  isPopover,
   ...rest
 }) => {
-  const { addTooltip, deactivateTooltip, deactivateAllTooltips } =
-    useTooltipState();
+  const {
+    addTooltip,
+    deactivateTooltip,
+    deactivateAllTooltips
+  } = useTooltipState();
 
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any | null>(null);
   const mounted = useRef<boolean>(false);
-  const ref = useRef<(setter: boolean) => void>(setInternalVisible);
+  const ref = useRef<(setter: boolean, isPop?: boolean) => boolean>(
+    (vis, isPop) => {
+      // Since Popovers use the Tooltip component and they share state, need to differentiate between
+      // Popovers and Tooltips so one does not deactivate the other
+      if (isPop === isPopover) {
+        setInternalVisible(vis);
+      }
+
+      // Return whether the ref's state was updated
+      return isPop === isPopover;
+    }
+  );
 
   useEffect(() => {
     // componentDidUpdateLogic style logic
@@ -142,7 +162,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
     const timer = timeout.current;
     return () => {
       clearTimeout(timer);
-      deactivateTooltip(curRef);
+      deactivateTooltip(curRef, isPopover);
     };
   }, [deactivateTooltip, visible]);
 
@@ -187,7 +207,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
             exit={{ opacity: 0, scale: 0.3 }}
             onClick={() => {
               if (closeOnClick) {
-                deactivateAllTooltips();
+                deactivateAllTooltips(isPopover);
               }
             }}
           >
@@ -200,7 +220,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           clearTimeout(timeout.current);
           timeout.current = setTimeout(() => {
             if (!disabled) {
-              deactivateAllTooltips();
+              deactivateAllTooltips(isPopover);
               setInternalVisible(true);
               addTooltip(ref.current);
             }
@@ -210,7 +230,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       onClose={() => {
         clearTimeout(timeout.current);
         timeout.current = setTimeout(() => {
-          deactivateTooltip(ref.current);
+          deactivateTooltip(ref.current, isPopover);
         }, leaveDelay);
       }}
     >
