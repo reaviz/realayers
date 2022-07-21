@@ -1,3 +1,6 @@
+# 3.0.6 - 5/31/22
+- [fix] add closeOnClick check #9
+
 # 3.0.5 - 5/31/22
 - [fix] fix tooltips and popovers killing each other #7
 
