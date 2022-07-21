@@ -227,11 +227,16 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           }, enterDelay);
         }
       }}
-      onClose={() => {
-        clearTimeout(timeout.current);
-        timeout.current = setTimeout(() => {
-          deactivateTooltip(ref.current, isPopover);
-        }, leaveDelay);
+      onClose={e => {
+        if (
+          e?.nativeEvent?.type !== 'click' ||
+          (e?.nativeEvent?.type === 'click' && closeOnClick)
+        ) {
+          clearTimeout(timeout.current);
+          timeout.current = setTimeout(() => {
+            deactivateTooltip(ref.current, isPopover);
+          }, leaveDelay);
+        }
       }}
     >
       {children}
