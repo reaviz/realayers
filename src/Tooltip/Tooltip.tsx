@@ -107,6 +107,16 @@ export interface TooltipProps {
    * Differentiator for popovers to be handled separate from tooltips
    */
   isPopover?: boolean;
+
+  /**
+   * Tooltip was opened.
+   */
+  onOpen?(): void;
+
+  /**
+   * Tooltip was closed.
+   */
+  onClose?(): void;
 }
 
 export const Tooltip: FC<Partial<TooltipProps>> = ({
@@ -126,13 +136,12 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   closeOnBodyClick,
   pointerEvents,
   isPopover,
+  onOpen,
+  onClose,
   ...rest
 }) => {
-  const {
-    addTooltip,
-    deactivateTooltip,
-    deactivateAllTooltips
-  } = useTooltipState();
+  const { addTooltip, deactivateTooltip, deactivateAllTooltips } =
+    useTooltipState();
 
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any | null>(null);
@@ -223,6 +232,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
               deactivateAllTooltips(isPopover);
               setInternalVisible(true);
               addTooltip(ref.current);
+              onOpen?.();
             }
           }, enterDelay);
         }
@@ -235,6 +245,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           clearTimeout(timeout.current);
           timeout.current = setTimeout(() => {
             deactivateTooltip(ref.current, isPopover);
+            onClose?.();
           }, leaveDelay);
         }
       }}
