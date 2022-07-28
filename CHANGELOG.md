@@ -1,3 +1,6 @@
+# 3.0.7 - 7/28/22
+- [feature] Add event handlers for tooltip open and close #10
+
 # 3.0.6 - 5/31/22
 - [fix] add closeOnClick check #9
 
