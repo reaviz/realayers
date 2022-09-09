@@ -1,3 +1,6 @@
+# 3.0.9 - 9/9/22
+- [fix] fix notification close button not getting cursor pointer
+
 # 3.0.8 - 9/9/22
 - [feature] add ability to pass classname to notifications
 
