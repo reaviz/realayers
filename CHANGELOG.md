@@ -1,3 +1,6 @@
+# 3.0.8 - 9/9/22
+- [feature] add ability to pass classname to notifications
+
 # 3.0.7 - 7/28/22
 - [feature] Add event handlers for tooltip open and close #10
 
