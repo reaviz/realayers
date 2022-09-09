@@ -13,6 +13,7 @@ import {
 } from './NotificationsContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import css from './Notifications.module.css';
+import classNames from 'classnames';
 
 export interface NotificationsProps {
   limit?: number;
@@ -20,6 +21,7 @@ export interface NotificationsProps {
   showClose?: boolean;
   preventFlooding?: boolean;
   children?: ReactNode;
+  className?: string;
 }
 
 // Hacky way to track unique versions of a notification
@@ -30,6 +32,7 @@ export const Notifications: FC<NotificationsProps> = ({
   limit,
   timeout,
   showClose,
+  className,
   preventFlooding
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
@@ -131,7 +134,12 @@ export const Notifications: FC<NotificationsProps> = ({
                 exit={{ opacity: 0 }}
               >
                 {notifications.map(n => (
-                  <Notification {...n} key={n.id} onClose={clearNotification} />
+                  <Notification
+                    {...n}
+                    key={n.id}
+                    className={classNames(className, n.className)}
+                    onClose={clearNotification}
+                  />
                 ))}
               </motion.div>
             )}
