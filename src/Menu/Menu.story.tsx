@@ -103,7 +103,7 @@ export const Nested = () => {
   );
 };
 
-export const ReferenceWidth = () => {
+export const AutoWidth = () => {
   const { toggleOpen, ref, Menu: MenuComponent } = useMenu();
 
   return (
@@ -116,7 +116,7 @@ export const ReferenceWidth = () => {
       >
         Open
       </button>
-      <MenuComponent style={{ background: 'white' }} sameReferenceWidth>
+      <MenuComponent style={{ background: 'white' }} autoWidth>
         <h3>My Menu</h3>
         <ul>
           <li>Austin</li>

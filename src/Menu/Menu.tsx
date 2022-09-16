@@ -2,6 +2,7 @@ import React, { FC, forwardRef, Ref, useMemo } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
+import { Modifiers } from 'popper.js';
 import { motion } from 'framer-motion';
 import css from './Menu.module.css';
 
@@ -64,12 +65,22 @@ export interface MenuProps {
   /**
    * Popper.js Position modifiers.
    */
-  modifiers?: any;
+  modifiers?: Modifiers[];
 
   /**
    * Whether the menu should be the same width as the reference element
    */
-  sameReferenceWidth?: boolean;
+  autoWidth?: boolean;
+
+  /**
+   * Min width of the menu.
+   */
+  minWidth?: number;
+
+  /**
+   * Max width of the menu.
+   */
+  maxWidth?: number;
 
   /**
    * Menu was closed.
@@ -104,7 +115,9 @@ export const Menu: FC<
       maxHeight,
       autofocus,
       modifiers,
-      sameReferenceWidth,
+      autoWidth,
+      minWidth,
+      maxWidth,
       onClose,
       onMouseEnter,
       onMouseLeave
@@ -114,7 +127,7 @@ export const Menu: FC<
     const id = useId();
 
     const internalModifiers = useMemo(() => {
-      if (sameReferenceWidth) {
+      if (autoWidth) {
         const sameWidth = {
           name: 'sameWidth',
           enabled: true,
@@ -122,8 +135,16 @@ export const Menu: FC<
           requires: ['computeStyles'],
           fn: data => {
             const { width, left, right } = data.offsets.reference;
-            data.styles.width = width;
-            data.offsets.popper.width = width;
+            let menuWidth = width;
+
+            if (maxWidth && menuWidth > maxWidth) {
+              menuWidth = maxWidth;
+            } else if (minWidth && menuWidth < minWidth) {
+              menuWidth = minWidth;
+            }
+
+            data.styles.width = menuWidth;
+            data.offsets.popper.width = menuWidth;
             data.offsets.popper.left = left;
             data.offsets.popper.right = right;
 
@@ -135,7 +156,7 @@ export const Menu: FC<
       }
 
       return modifiers;
-    }, [modifiers, sameReferenceWidth]);
+    }, [modifiers, autoWidth, minWidth, maxWidth]);
 
     return (
       <ConnectedOverlay
