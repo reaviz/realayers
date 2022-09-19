@@ -1,3 +1,6 @@
+# 3.0.10 - 9/19/22
+- [feature] allow menu to have the same width as the reference #11
+
 # 3.0.9 - 9/9/22
 - [fix] fix notification close button not getting cursor pointer
 
