@@ -127,3 +127,32 @@ export const AutoWidth = () => {
     </Fragment>
   );
 };
+
+export const AutoWidthWithModifiers = () => {
+  const { toggleOpen, ref, Menu: MenuComponent } = useMenu();
+
+  return (
+    <Fragment>
+      <button
+        type="button"
+        ref={ref}
+        onClick={toggleOpen}
+        style={{ width: '300px' }}
+      >
+        Open
+      </button>
+      <MenuComponent
+        style={{ background: 'white' }}
+        autoWidth
+        modifiers={{ offset: { offset: '-100, 25' } }}
+      >
+        <h3>My Menu</h3>
+        <ul>
+          <li>Austin</li>
+          <li>Mark</li>
+          <li>Jack</li>
+        </ul>
+      </MenuComponent>
+    </Fragment>
+  );
+};
