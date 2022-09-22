@@ -116,11 +116,7 @@ export const AutoWidth = () => {
       >
         Open
       </button>
-      <MenuComponent
-        style={{ background: 'white' }}
-        autoWidth
-        modifiers={{ offset: { offset: '-100, 25' } }}
-      >
+      <MenuComponent style={{ background: 'white' }} autoWidth>
         <h3>My Menu</h3>
         <ul>
           <li>Austin</li>
