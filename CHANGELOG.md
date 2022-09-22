@@ -1,3 +1,6 @@
+# 3.0.11 - 9/22/22
+- [fix] allow modifiers along with autoWidth #12
+
 # 3.0.10 - 9/19/22
 - [feature] allow menu to have the same width as the reference #11
 
