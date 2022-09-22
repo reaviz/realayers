@@ -65,7 +65,7 @@ export interface MenuProps {
   /**
    * Popper.js Position modifiers.
    */
-  modifiers?: Modifiers[];
+  modifiers?: Modifiers;
 
   /**
    * Whether the menu should be the same width as the reference element
@@ -129,12 +129,10 @@ export const Menu: FC<
     const internalModifiers = useMemo(() => {
       if (autoWidth) {
         const sameWidth = {
-          name: 'sameWidth',
           enabled: true,
-          phase: 'beforeWrite',
-          requires: ['computeStyles'],
+          order: 840,
           fn: data => {
-            const { width, left, right } = data.offsets.reference;
+            const { width } = data.offsets.reference;
             let menuWidth = width;
 
             if (maxWidth && menuWidth > maxWidth) {
@@ -145,14 +143,12 @@ export const Menu: FC<
 
             data.styles.width = menuWidth;
             data.offsets.popper.width = menuWidth;
-            data.offsets.popper.left = left;
-            data.offsets.popper.right = right;
 
             return data;
           }
         };
 
-        return modifiers ? [...modifiers, sameWidth] : [sameWidth];
+        return modifiers ? { ...modifiers, sameWidth } : { sameWidth };
       }
 
       return modifiers;
