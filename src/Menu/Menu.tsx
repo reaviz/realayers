@@ -132,7 +132,9 @@ export const Menu: FC<
           enabled: true,
           order: 840,
           fn: data => {
-            const { width } = data.offsets.reference;
+            const { width, left, right } = data.offsets.reference;
+            const passedOffset = modifiers?.offset?.offset;
+            let passedXOffset = 0;
             let menuWidth = width;
 
             if (maxWidth && menuWidth > maxWidth) {
@@ -141,8 +143,19 @@ export const Menu: FC<
               menuWidth = minWidth;
             }
 
+            if (passedOffset) {
+              if (typeof passedOffset === 'number') {
+                passedXOffset = passedOffset;
+              } else {
+                const [skidding, distance] = passedOffset.split(',');
+                passedXOffset = parseInt(skidding.trim(), 10);
+              }
+            }
+
             data.styles.width = menuWidth;
             data.offsets.popper.width = menuWidth;
+            data.offsets.popper.left = left + passedXOffset;
+            data.offsets.popper.right = right + passedXOffset;
 
             return data;
           }
