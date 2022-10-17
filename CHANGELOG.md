@@ -1,3 +1,6 @@
+# 3.0.12 - 10/17/22
+- [fix] better take passed in modifiers into consideration with autoWidth #13
+
 # 3.0.11 - 9/22/22
 - [fix] allow modifiers along with autoWidth #12
 
