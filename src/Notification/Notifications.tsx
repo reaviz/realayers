@@ -4,16 +4,24 @@ import React, {
   ReactNode,
   useState,
   useCallback,
-  useMemo
+  useMemo,
+  JSXElementConstructor
 } from 'react';
 import { Notification } from './Notification';
 import {
   NotificationOptions,
-  NotificationsContext
+  NotificationsContext,
+  NotificationVariants
 } from './NotificationsContext';
 import { AnimatePresence, motion } from 'framer-motion';
 import css from './Notifications.module.css';
 import classNames from 'classnames';
+
+export interface NotificationComponentProps {
+  message: string;
+  variant: NotificationVariants;
+  onClose?: () => void;
+}
 
 export interface NotificationsProps {
   limit?: number;
@@ -22,6 +30,9 @@ export interface NotificationsProps {
   preventFlooding?: boolean;
   children?: ReactNode;
   className?: string;
+  Components?: {
+    [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
+  };
 }
 
 // Hacky way to track unique versions of a notification
@@ -33,7 +44,8 @@ export const Notifications: FC<NotificationsProps> = ({
   timeout,
   showClose,
   className,
-  preventFlooding
+  preventFlooding,
+  Components
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
@@ -70,7 +82,7 @@ export const Notifications: FC<NotificationsProps> = ({
       const sorted = [obj, ...notifications];
 
       // Clear old notifications if we hit limit
-      if (sorted.length >= limit) {
+      if (sorted.length > limit) {
         sorted.pop();
       }
 
@@ -133,14 +145,35 @@ export const Notifications: FC<NotificationsProps> = ({
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                {notifications.map(n => (
-                  <Notification
-                    {...n}
-                    key={n.id}
-                    className={classNames(className, n.className)}
-                    onClose={clearNotification}
-                  />
-                ))}
+                {notifications.map(n => {
+                  if (Components?.[n.variant]) {
+                    const CustomNotification = Components?.[n.variant];
+                    return (
+                      <Notification
+                        {...n}
+                        component={
+                          <CustomNotification
+                            message={n.title}
+                            variant={n.variant}
+                            onClose={() => clearNotification(n.id)}
+                          />
+                        }
+                        showClose={false}
+                        key={n.id}
+                        onClose={clearNotification}
+                      />
+                    );
+                  }
+
+                  return (
+                    <Notification
+                      {...n}
+                      key={n.id}
+                      className={classNames(className, n.className)}
+                      onClose={clearNotification}
+                    />
+                  );
+                })}
               </motion.div>
             )}
           </AnimatePresence>

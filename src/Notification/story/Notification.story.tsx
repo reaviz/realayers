@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import { Notifications } from './Notifications';
-import { NotificationsContext } from './NotificationsContext';
+import { CustomNotification } from './CustomNotification';
+import { Notifications } from '../Notifications';
+import { NotificationsContext } from '../NotificationsContext';
 
 export default {
   title: 'Notification',
@@ -103,6 +104,37 @@ export const FloodPrevention = () => (
           <br />
           <br />
           <button onClick={() => clearAll()}>Clear</button>
+        </Fragment>
+      )}
+    </NotificationsContext.Consumer>
+  </Notifications>
+);
+
+export const CustomComponent = () => (
+  <Notifications
+    Components={{
+      default: CustomNotification,
+      success: CustomNotification,
+      warning: CustomNotification,
+      error: CustomNotification
+    }}
+  >
+    <NotificationsContext.Consumer>
+      {({ notify, clearAllNotifications }) => (
+        <Fragment>
+          <button onClick={() => notify('Default')}>Custom Default</button>
+          <button onClick={() => notify('Success', { variant: 'success' })}>
+            Custom Success
+          </button>
+          <button onClick={() => notify('Warning', { variant: 'warning' })}>
+            Custom Warning
+          </button>
+          <button onClick={() => notify('Error', { variant: 'error' })}>
+            Custom Error
+          </button>
+          <br />
+          <br />
+          <button onClick={() => clearAllNotifications()}>Clear</button>
         </Fragment>
       )}
     </NotificationsContext.Consumer>

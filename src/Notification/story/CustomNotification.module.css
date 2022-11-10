@@ -1,0 +1,16 @@
+.root {
+  &:global {
+    &.default {
+      background-color: lightblue;
+    }
+    &.success {
+      background-color: lightgreen;
+    }
+    &.warning {
+      background-color: lightsalmon;
+    }
+    &.error {
+      background-color: lightcoral;
+    }
+  }
+}
