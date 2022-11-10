@@ -30,7 +30,7 @@ export interface NotificationsProps {
   preventFlooding?: boolean;
   children?: ReactNode;
   className?: string;
-  Components?: {
+  components?: {
     [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
   };
 }
@@ -45,7 +45,7 @@ export const Notifications: FC<NotificationsProps> = ({
   showClose,
   className,
   preventFlooding,
-  Components
+  components
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
@@ -146,8 +146,8 @@ export const Notifications: FC<NotificationsProps> = ({
                 exit={{ opacity: 0 }}
               >
                 {notifications.map(n => {
-                  if (Components?.[n.variant]) {
-                    const CustomNotification = Components?.[n.variant];
+                  if (components?.[n.variant]) {
+                    const CustomNotification = components?.[n.variant];
                     return (
                       <Notification
                         {...n}

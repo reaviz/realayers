@@ -1,12 +1,40 @@
-import React, { Fragment } from 'react';
-import { CustomNotification } from './CustomNotification';
-import { Notifications } from '../Notifications';
-import { NotificationsContext } from '../NotificationsContext';
+import React, { FC, Fragment } from 'react';
+import { NotificationComponentProps, Notifications } from './Notifications';
+import { NotificationsContext } from './NotificationsContext';
 
 export default {
   title: 'Notification',
   component: Notifications
 };
+
+export const CustomNotification: FC<NotificationComponentProps> = ({
+  message,
+  variant,
+  onClose
+}) => (
+  <div
+    className={variant}
+    style={{
+      width: '200px',
+      height: '50px',
+      borderRadius: '5px',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '10px',
+      boxSizing: 'border-box',
+      ...(variant === 'default' ? { backgroundColor: 'lightblue' } : null),
+      ...(variant === 'success' ? { backgroundColor: 'lightgreen' } : null),
+      ...(variant === 'warning' ? { backgroundColor: 'lightsalmon' } : null),
+      ...(variant === 'error' ? { backgroundColor: 'lightcoral' } : null)
+    }}
+    onClick={onClose}
+  >
+    {message}{' '}
+    <div style={{ marginLeft: '5px', fontSize: '12px' }}>
+      (Click me to close!)
+    </div>
+  </div>
+);
 
 export const Title = () => (
   <Notifications>
@@ -112,7 +140,7 @@ export const FloodPrevention = () => (
 
 export const CustomComponent = () => (
   <Notifications
-    Components={{
+    components={{
       default: CustomNotification,
       success: CustomNotification,
       warning: CustomNotification,
