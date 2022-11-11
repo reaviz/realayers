@@ -1,3 +1,6 @@
+# 3.0.13 - 11/11/22
+- [improvement] Custom notification component #14
+
 # 3.0.12 - 10/17/22
 - [fix] better take passed in modifiers into consideration with autoWidth #13
 
