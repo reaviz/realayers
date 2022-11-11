@@ -1,11 +1,13 @@
 import { createContext } from 'react';
 
+export type NotificationVariants = 'default' | 'success' | 'warning' | 'error';
+
 export interface NotificationOptions {
   title?: string | JSX.Element | JSX.Element[];
   body?: string | JSX.Element | JSX.Element[];
   timeout?: number;
   showClose?: boolean;
-  variant?: 'default' | 'error' | 'success' | 'warning';
+  variant?: NotificationVariants;
   className?: string;
 }
 
