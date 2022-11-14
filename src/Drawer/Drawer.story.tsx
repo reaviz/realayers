@@ -3,7 +3,7 @@ import { useDrawer } from './useDrawer';
 import { Drawer } from './Drawer';
 
 export default {
-  title: 'Drawer',
+  title: 'Demos/Drawer',
   component: Drawer
 };
 

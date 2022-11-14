@@ -1,11 +1,15 @@
 module.exports = {
-  stories: ['../src/**/*.story.tsx'],
+  stories: [
+    '../docs/**/*.story.@(tsx|mdx)',
+    '../src/**/*.story.@(tsx|mdx)',
+  ],
   addons: [
-    '@storybook/addon-knobs',
     'storybook-css-modules-preset',
+    '@storybook/addon-docs',
+    '@storybook/addon-essentials',
     '@storybook/addon-storysource'
   ],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config ) => {
     config.module.rules.push({
       type: 'javascript/auto',
       test: /\.mjs$/,

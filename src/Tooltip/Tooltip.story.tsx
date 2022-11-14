@@ -2,7 +2,7 @@ import React from 'react';
 import { Tooltip } from './Tooltip';
 
 export default {
-  title: 'Tooltip',
+  title: 'Demos/Tooltip',
   component: Tooltip
 };
 
