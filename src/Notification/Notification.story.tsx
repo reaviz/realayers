@@ -3,11 +3,11 @@ import { NotificationComponentProps, Notifications } from './Notifications';
 import { NotificationsContext } from './NotificationsContext';
 
 export default {
-  title: 'Notification',
+  title: 'Demos/Notification',
   component: Notifications
 };
 
-export const CustomNotification: FC<NotificationComponentProps> = ({
+const CustomNotification: FC<NotificationComponentProps> = ({
   message,
   variant,
   onClose

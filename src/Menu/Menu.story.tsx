@@ -4,7 +4,7 @@ import { NestedMenu } from './NestedMenu';
 import { useMenu } from './useMenu';
 
 export default {
-  title: 'Menu',
+  title: 'Demos/Menu',
   component: Menu,
   subComponents: {
     NestedMenu

@@ -2,7 +2,7 @@ import React from 'react';
 import { Popover } from './Popover';
 
 export default {
-  title: 'Popover',
+  title: 'Demos/Popover',
   component: Popover
 };
 
