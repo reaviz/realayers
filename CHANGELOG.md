@@ -1,3 +1,6 @@
+# 3.1.0 - 11/21/22
+- [chore] upgrade framer-motion and rdk
+
 # 3.0.13 - 11/11/22
 - [improvement] Custom notification component #14
 
