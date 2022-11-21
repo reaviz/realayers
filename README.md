@@ -30,7 +30,7 @@
 
 ## 🚀 Quick Links
 
-- Checkout the [demos](https://master--5f64a424915bb90022b5d92a.chromatic.com)
+- Checkout the [demos](https://reaviz.github.io/realayers/)
 - View the library on [Chromatic](https://chromatic.com/library?appId=5f64a424915bb90022b5d92a&branch=master)
 - Learn about updates from the [changelog](CHANGELOG.md)
 
